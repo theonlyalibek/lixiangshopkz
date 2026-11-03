@@ -1,0 +1,752 @@
+[
+ {
+  "name": "Карбоновый электромагнитный клапан",
+  "oem": "1000791-AWB",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134842302-karbonovyj-elektromagnitnyj-klapan.html"
+ },
+ {
+  "name": "Масляный фильтр",
+  "oem": "1001787",
+  "price_kzt": 4000,
+  "satu": "https://satu.kz/p134838434-maslyanyj-filtr-lixiang.html"
+ },
+ {
+  "name": "Воздушный фильтр",
+  "oem": "X01-90000014",
+  "price_kzt": 3000,
+  "satu": "https://satu.kz/p134838482-vozdushnyj-filtr-lixiang.html"
+ },
+ {
+  "name": "Электронный насос",
+  "oem": "1001788-AWB",
+  "price_kzt": 70000,
+  "satu": "https://satu.kz/p134843556-elektronyj-nasos-lixiang.html"
+ },
+ {
+  "name": "Топливный насос высокого давления",
+  "oem": "1000876-AWB",
+  "price_kzt": 100000,
+  "satu": "https://satu.kz/p134844468-toplivnyj-nasos-vysokogo.html"
+ },
+ {
+  "name": "Форсунка",
+  "oem": "1000710-AWB",
+  "price_kzt": 25000,
+  "satu": "https://satu.kz/p134844470-forsunka-lixiang-1000710.html"
+ },
+ {
+  "name": "Цапфа правая",
+  "oem": "X01-30010012-FD",
+  "price_kzt": 100000,
+  "satu": "https://satu.kz/p134759694-tsapfa-pravaya-lixiang.html"
+ },
+ {
+  "name": "Цапфа левая",
+  "oem": "X01-30010011-FD",
+  "price_kzt": 100000,
+  "satu": "https://satu.kz/p134759879-tsapfa-levaya-lixiang.html"
+ },
+ {
+  "name": "Колодки задние",
+  "oem": "M01-90000009-TRW",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134775085-kolodki-zadnie-lixiang.html"
+ },
+ {
+  "name": "Колодки передние",
+  "oem": "X01-90000272-AA",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134775087-kolodki-perednik-lixiang.html"
+ },
+ {
+  "name": "Колодки задние",
+  "oem": "X03-90000161-AA",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134775089-kolodki-zadnie-lixiang.html"
+ },
+ {
+  "name": "Колодки передние",
+  "oem": "X03-90000160-AA",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134775090-kolodki-perednie-lixiang.html"
+ },
+ {
+  "name": "Колодки задние",
+  "oem": "LAA-90000617-AA",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134775091-kolodki-zadnie-lixiang.html"
+ },
+ {
+  "name": "Колодки передние",
+  "oem": "LAA-90000327-AA",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134775095-kolodki-perednie-lixiang.html"
+ },
+ {
+  "name": "Задний левый привод в сборе",
+  "oem": "X01-22010011-B",
+  "price_kzt": 150000,
+  "satu": "https://satu.kz/p134775074-zadnij-levyj-privod.html"
+ },
+ {
+  "name": "Задний правый привод в сборе",
+  "oem": "X01-22010012-B",
+  "price_kzt": 150000,
+  "satu": "https://satu.kz/p134775075-zadnij-pravyj-privod.html"
+ },
+ {
+  "name": "Передний левый привод в сборе",
+  "oem": "X01-22030011-FD",
+  "price_kzt": 150000,
+  "satu": "https://satu.kz/p134775076-perednij-levyj-privod.html"
+ },
+ {
+  "name": "Передний правый привод в сборе",
+  "oem": "X01-22030012-FD",
+  "price_kzt": 150000,
+  "satu": "https://satu.kz/p134775078-perednij-pravyj-privod.html"
+ },
+ {
+  "name": "Привод задний",
+  "oem": "LAA-22030011-FD",
+  "price_kzt": 90000,
+  "satu": "https://satu.kz/p134775081-privod-zadnij-lixiang.html"
+ },
+ {
+  "name": "Привод задний",
+  "oem": "LAA-22030012-FD",
+  "price_kzt": 90000,
+  "satu": "https://satu.kz/p134775084-privod-zadnij-lixiang.html"
+ },
+ {
+  "name": "Водяная насосная машина",
+  "oem": "1001447-AWB",
+  "price_kzt": 55000,
+  "satu": "https://satu.kz/p134843053-vodyanaya-nasosnaya-mashina.html"
+ },
+ {
+  "name": "Оригинальная передняя камера",
+  "oem": "X01-37760011",
+  "price_kzt": 75000,
+  "satu": "https://satu.kz/p136155362-originalnaya-perednyaya-kamera.html"
+ },
+ {
+  "name": "Подушка ДВС",
+  "oem": "X02-10010011-AWB",
+  "price_kzt": 5000,
+  "satu": "https://satu.kz/p134837688-podushka-dvs-lixiang.html"
+ },
+ {
+  "name": "Опора КПП",
+  "oem": "X02-10010013-XX",
+  "price_kzt": 40000,
+  "satu": "https://satu.kz/p134837690-opora-kpp-lixiang.html"
+ },
+ {
+  "name": "Рулевая рейка",
+  "oem": "X01-34010022",
+  "price_kzt": 580000,
+  "satu": "https://satu.kz/p134838417-rulevaya-rejka-lixiang.html"
+ },
+ {
+  "name": "Рулевая рейка",
+  "oem": "X03-34010011",
+  "price_kzt": 580000,
+  "satu": "https://satu.kz/p134838423-rulevaya-rejka-lixiang.html"
+ },
+ {
+  "name": "Рулевая рейка",
+  "oem": "LAA-34010001",
+  "price_kzt": 580000,
+  "satu": "https://satu.kz/p134838426-rulevaya-rejka-lixiang.html"
+ },
+ {
+  "name": "Сайлентблок задний плавающий",
+  "oem": "LAA-300200113-AWB",
+  "price_kzt": 18000,
+  "satu": "https://satu.kz/p134760620-sajlentblok-zadnij-plavayuschij.html"
+ },
+ {
+  "name": "Сайлентблок задний плавающий",
+  "oem": "LAA-300200112-AWB",
+  "price_kzt": 18000,
+  "satu": "https://satu.kz/p134760630-sajlentblok-zadnij-plavayuschij.html"
+ },
+ {
+  "name": "Выпускной патрубок интеркулера",
+  "oem": "X01-11190021",
+  "price_kzt": 20000,
+  "satu": "https://satu.kz/p134837697-vypusknoj-patrubok-interkulera.html"
+ },
+ {
+  "name": "Выпускной патрубок интеркулера",
+  "oem": "X01-11190023",
+  "price_kzt": 20000,
+  "satu": "https://satu.kz/p134837757-vypusknoj-patrubok-interkulera.html"
+ },
+ {
+  "name": "Выпускной патрубок интеркулера",
+  "oem": "X01-11190025",
+  "price_kzt": 25000,
+  "satu": "https://satu.kz/p134837762-vypusknoj-patrubok-interkulera.html"
+ },
+ {
+  "name": "Впускной патрубок интеркулера короткий",
+  "oem": "X01-11190011-1",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134837768-vpusknoj-patrubok-interkulera.html"
+ },
+ {
+  "name": "Выпускной патрубок интеркулера",
+  "oem": "X01-11190027-1",
+  "price_kzt": 10000,
+  "satu": "https://satu.kz/p134837771-vypusknoj-patrubok-interkulera.html"
+ },
+ {
+  "name": "Впускной патрубок интеркулера",
+  "oem": "X01-25010011-1",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134837778-vpusknoj-patrubok-interkulera.html"
+ },
+ {
+  "name": "Впускной патрубок интеркулера прямая труба",
+  "oem": "X01-11190013",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134837787-vypusknoj-patrubok-interkulera.html"
+ },
+ {
+  "name": "Впускной патрубок водяного насоса",
+  "oem": "1001554",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134837789-vpusknoj-patrubok-vodyanogo.html"
+ },
+ {
+  "name": "Передний нижний патрубок охлаждения двигателя",
+  "oem": "X01-21270037ZC",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134837842-perednij-nizhnij-patrubok.html"
+ },
+ {
+  "name": "Выпускной патрубок водяного бака",
+  "oem": "LAA-13030012",
+  "price_kzt": 20000,
+  "satu": "https://satu.kz/p134837856-vypusknoj-patrubok-vodyanogo.html"
+ },
+ {
+  "name": "Впускной патрубок интеркулера",
+  "oem": "LAA-11190016",
+  "price_kzt": 20000,
+  "satu": "https://satu.kz/p134837858-vpusknoj-patrubok-interkulera.html"
+ },
+ {
+  "name": "Впускной патрубок радиатора",
+  "oem": "LAA-13030011-02",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134837866-vpusknoj-patrubok-radiatora.html"
+ },
+ {
+  "name": "Интеркулер левый",
+  "oem": "X01-11190032",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134837871-interkuler-levyj-lixiang.html"
+ },
+ {
+  "name": "Интеркулер правый",
+  "oem": "X01-11190033",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134838038-interkuler-pravyj-lixiang.html"
+ },
+ {
+  "name": "Интеркулер",
+  "oem": "LAA-30010022",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134838402-interkuler-lixiang-laa.html"
+ },
+ {
+  "name": "Термостат в сборе",
+  "oem": "1001557-AWB",
+  "price_kzt": 90000,
+  "satu": "https://satu.kz/p134844467-termostat-sbore-lixiang.html"
+ },
+ {
+  "name": "Бачок расширительный левый",
+  "oem": "X01-21270013-AWB",
+  "price_kzt": 40000,
+  "satu": "https://satu.kz/p134844472-bachok-rasshiritelnyj-levyj.html"
+ },
+ {
+  "name": "Бачок расширительный",
+  "oem": "X01-13110014-AWB",
+  "price_kzt": 40000,
+  "satu": "https://satu.kz/p134844474-bachok-rasshiritelnyj-lixiang.html"
+ },
+ {
+  "name": "Цапфа левая",
+  "oem": "LAA-30010011",
+  "price_kzt": 100000,
+  "satu": "https://satu.kz/p134759891-tsapfa-levaya-lixiang.html"
+ },
+ {
+  "name": "Цапфа правая",
+  "oem": "LAA-30010012",
+  "price_kzt": 100000,
+  "satu": "https://satu.kz/p134759897-tsapfa-pravaya-lixiang.html"
+ },
+ {
+  "name": "Цапфа задняя левая",
+  "oem": "X01-30020011",
+  "price_kzt": 100000,
+  "satu": "https://satu.kz/p134760399-tsapfa-zadnyaya-leva.html"
+ },
+ {
+  "name": "Цапфа задняя правая",
+  "oem": "X01-30020012",
+  "price_kzt": 100000,
+  "satu": "https://satu.kz/p134760451-tsapfa-zadnyaya-pravaya.html"
+ },
+ {
+  "name": "Шланг тормозной задний левый",
+  "oem": "X01-35060015-PT",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134760544-shlang-tormoznoj-zadnij.html"
+ },
+ {
+  "name": "Шланг тормозной задний правый",
+  "oem": "X01-35060019-PT",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134760610-shlang-tormoznoj-zadnij.html"
+ },
+ {
+  "name": "Тормозной шланг передний",
+  "oem": "X01-35060006-PT",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134760614-tormoznoj-shlang-perednij.html"
+ },
+ {
+  "name": "Тормозной шланг передний",
+  "oem": "X01-35060011-PT",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134760617-tormoznoj-shlang-perednij.html"
+ },
+ {
+  "name": "Прокладка клапанной крышки",
+  "oem": "1001633-AWB",
+  "price_kzt": 17000,
+  "satu": "https://satu.kz/p134760632-prokladka-klapannoj-kryshki.html"
+ },
+ {
+  "name": "Катушка зажигания",
+  "oem": "1000378-AWB",
+  "price_kzt": 20000,
+  "satu": "https://satu.kz/p134760638-katushka-zazhiganiya-lixiang.html"
+ },
+ {
+  "name": "Рулевой наконечник",
+  "oem": "X01-34010021-AWB",
+  "price_kzt": 19500,
+  "satu": "https://satu.kz/p134760641-rulevoj-nakonechnik-lixiang.html"
+ },
+ {
+  "name": "Рулевой наконечник",
+  "oem": "X01-34010020-AWB",
+  "price_kzt": 19500,
+  "satu": "https://satu.kz/p134760643-rulevoj-nakonechnik-lixiang.html"
+ },
+ {
+  "name": "Рулевая тяга",
+  "oem": "X01-34010019-SMK",
+  "price_kzt": 18000,
+  "satu": "https://satu.kz/p134760648-rulevaya-tyaga-lixiang.html"
+ },
+ {
+  "name": "Втулка стабилизатора",
+  "oem": "X01-29160013-AWB",
+  "price_kzt": 7000,
+  "satu": "https://satu.kz/p134760649-vtulka-stabilizatora-lixiang.html"
+ },
+ {
+  "name": "Втулка стабилизатора",
+  "oem": "X01-29060013-AWB",
+  "price_kzt": 7000,
+  "satu": "https://satu.kz/p134760657-vtulka-stabilizatora-lixiang.html"
+ },
+ {
+  "name": "Задняя стойка стабилизатора",
+  "oem": "X01-29160015-SMK",
+  "price_kzt": 10000,
+  "satu": "https://satu.kz/p134760660-zadnyaya-stojka-stabilizatora.html"
+ },
+ {
+  "name": "Передняя левая стойка стабилизатора",
+  "oem": "X01-29060015-SMK",
+  "price_kzt": 10000,
+  "satu": "https://satu.kz/p134761520-perednyaya-levaya-stojka.html"
+ },
+ {
+  "name": "Передняя правая стойка стабилизатора",
+  "oem": "X01-29060016-SMK",
+  "price_kzt": 18000,
+  "satu": "https://satu.kz/p134761527-perednyaya-pravaya-stojka.html"
+ },
+ {
+  "name": "Стойка стабилизатора задняя левая",
+  "oem": "LAA-29160015-SMK",
+  "price_kzt": 19500,
+  "satu": "https://satu.kz/p134761532-stojka-stabilizatora-zadnyaya.html"
+ },
+ {
+  "name": "Стойка стабилизатора задняя правая",
+  "oem": "LAA-29160016-SMK",
+  "price_kzt": 19500,
+  "satu": "https://satu.kz/p134761535-stojka-stabilizatora-zadnyaya.html"
+ },
+ {
+  "name": "Стойка стабилизатора передняя левая",
+  "oem": "LAA-29060023-SMK",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134761537-stojka-stabilizatora-perednyaya.html"
+ },
+ {
+  "name": "Стойка стабилизатора передняя правая",
+  "oem": "LAA-29060024-SMK",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134761540-stojka-stabilizatora-perednyaya.html"
+ },
+ {
+  "name": "Задняя рулевая тяга левый",
+  "oem": "LAA-29140041",
+  "price_kzt": 45000,
+  "satu": "https://satu.kz/p134761547-zadnyaya-rulevaya-tyaga.html"
+ },
+ {
+  "name": "Задняя рулевая тяга правый",
+  "oem": "LAA-29140042",
+  "price_kzt": 45000,
+  "satu": "https://satu.kz/p134761550-zadnyaya-rulevaya-tyaga.html"
+ },
+ {
+  "name": "Рулевой наконечник",
+  "oem": "LAA-34010020-FD",
+  "price_kzt": 20000,
+  "satu": "https://satu.kz/p134837668-rulevoj-nakonechnik-lixiang.html"
+ },
+ {
+  "name": "Рулевой наконечник",
+  "oem": "LAA-34010021-FD",
+  "price_kzt": 20000,
+  "satu": "https://satu.kz/p134837675-rulevoj-nakonechnik-lixiang.html"
+ },
+ {
+  "name": "Подушка КПП",
+  "oem": "X02-10010012-AWB",
+  "price_kzt": 55000,
+  "satu": "https://satu.kz/p134837683-podushka-kpp-lixiang.html"
+ },
+ {
+  "name": "Рулевая тяга",
+  "oem": "LAA-34010017-AWB",
+  "price_kzt": 15000,
+  "satu": "https://satu.kz/p134837693-rulevaya-tyaga-lixiang.html"
+ },
+ {
+  "name": "Пыльник рулевой тяги",
+  "oem": "M01-34010005\\\\Z",
+  "price_kzt": 6000,
+  "satu": "https://satu.kz/p134838429-pylnik-rulevoj-tyagi.html"
+ },
+ {
+  "name": "Салонный фильтр",
+  "oem": "X01-90000044-1",
+  "price_kzt": 3000,
+  "satu": "https://satu.kz/p134838492-salonnyj-filtr-lixiang.html"
+ },
+ {
+  "name": "Салонный фильтр",
+  "oem": "X03-90000206-1",
+  "price_kzt": 3000,
+  "satu": "https://satu.kz/p134838497-salonnyj-filtr-lixiang.html"
+ },
+ {
+  "name": "Ступица в сборе",
+  "oem": "LAA-31030001",
+  "price_kzt": 45000,
+  "satu": "https://satu.kz/p134838501-stupitsa-sbore-lixiang.html"
+ },
+ {
+  "name": "Ступица в сборе",
+  "oem": "M01-31030001",
+  "price_kzt": 70000,
+  "satu": "https://satu.kz/p134838505-stupitsa-sbore-lixiang.html"
+ },
+ {
+  "name": "Ступица в сборе",
+  "oem": "X03-31030011",
+  "price_kzt": 75000,
+  "satu": "https://satu.kz/p134838512-stupitsa-sbore-lixiang.html"
+ },
+ {
+  "name": "Датчик детонации",
+  "oem": "1000454-AWB",
+  "price_kzt": 80000,
+  "satu": "https://satu.kz/p134838516-datchik-detonatsii-lixiang.html"
+ },
+ {
+  "name": "Датчик распредвала",
+  "oem": "1000453-AWB",
+  "price_kzt": 35000,
+  "satu": "https://satu.kz/p134838520-datchik-raspredvala-lixiang.html"
+ },
+ {
+  "name": "Датчик давления масла",
+  "oem": "1000452-AWB",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134838525-datchik-davleniya-masla.html"
+ },
+ {
+  "name": "Датчик высокого давления",
+  "oem": "1000804-AWB",
+  "price_kzt": 45000,
+  "satu": "https://satu.kz/p134838530-datchik-vysokogo-davleniya.html"
+ },
+ {
+  "name": "Датчик положения коленчатого вала",
+  "oem": "1003316-AWB",
+  "price_kzt": 40000,
+  "satu": "https://satu.kz/p134839033-datchik-polozheniya-kolenchatogo.html"
+ },
+ {
+  "name": "Датчик температуры и давления впускного воздуха",
+  "oem": "1001783-AWB",
+  "price_kzt": 30000,
+  "satu": "https://satu.kz/p134839788-datchik-temperatury-davleniya.html"
+ },
+ {
+  "name": "Датчик наружной температуры",
+  "oem": "LAA-30130011-AWB",
+  "price_kzt": 25000,
+  "satu": "https://satu.kz/p134840542-datchik-naruzhnoj-temperatury.html"
+ },
+ {
+  "name": "Датчики кислорода перед",
+  "oem": "X01-36110011-AWB",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134841294-datchiki-kisloroda-pered.html"
+ },
+ {
+  "name": "Датчики кислорода задний",
+  "oem": "X01-36110015-AWB",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134841545-datchiki-kisloroda-zadnij.html"
+ },
+ {
+  "name": "Масляный насос",
+  "oem": "1000156-AWB",
+  "price_kzt": 60000,
+  "satu": "https://satu.kz/p134841548-maslyanyj-nasos-lixiang.html"
+ },
+ {
+  "name": "Передний нижний рычаг правый",
+  "oem": "LAA-29040012-AWB",
+  "price_kzt": 135000,
+  "satu": "https://satu.kz/p134761542-perednij-nizhnij-rychag.html"
+ },
+ {
+  "name": "Передний нижний рычаг левый",
+  "oem": "LAA-29040011-AWB",
+  "price_kzt": 135000,
+  "satu": "https://satu.kz/p134761544-perednij-nizhnij-rychag.html"
+ },
+ {
+  "name": "Задний верхний поперечный рычаг",
+  "oem": "X01-29140027-SMK",
+  "price_kzt": 40000,
+  "satu": "https://satu.kz/p134761557-zadnij-verhnij-poperechnyj.html"
+ },
+ {
+  "name": "Задний верхний рычаг поперечный правый",
+  "oem": "X01-29140026-SMK",
+  "price_kzt": 40000,
+  "satu": "https://satu.kz/p134761559-zadnij-verhnij-rychag.html"
+ },
+ {
+  "name": "Передний нижний рычаг правый",
+  "oem": "X01-20020029-AWB",
+  "price_kzt": 155000,
+  "satu": "https://satu.kz/p134775045-perednij-nizhnij-rychag.html"
+ },
+ {
+  "name": "Передний нижний рычаг левый",
+  "oem": "X01-20020028-AWB",
+  "price_kzt": 155000,
+  "satu": "https://satu.kz/p134775050-perednij-nizhnij-rychag.html"
+ },
+ {
+  "name": "Передний нижний правый рычаг подвески",
+  "oem": "X01-29040017-AWB",
+  "price_kzt": 130000,
+  "satu": "https://satu.kz/p134775051-perednij-nizhnij-pravyj.html"
+ },
+ {
+  "name": "Передний нижний левый рычаг подвески",
+  "oem": "X01-29040016-AWB",
+  "price_kzt": 130000,
+  "satu": "https://satu.kz/p134775053-perednij-nizhnij-levyj.html"
+ },
+ {
+  "name": "Задний нижний прямо рычаг",
+  "oem": "X01-29140011-SMK",
+  "price_kzt": 20000,
+  "satu": "https://satu.kz/p134775054-zadnij-nizhnij-pryamo.html"
+ },
+ {
+  "name": "Задний продольный рычаг подвески",
+  "oem": "X01-29140025-AWB",
+  "price_kzt": 40000,
+  "satu": "https://satu.kz/p134775055-zadnij-prodolnyj-rychag.html"
+ },
+ {
+  "name": "Задний правый рычаг подвески",
+  "oem": "X01-29140020-SMK",
+  "price_kzt": 55000,
+  "satu": "https://satu.kz/p134775057-zadnij-pravyj-rychag.html"
+ },
+ {
+  "name": "Задний левый рычаг подвески",
+  "oem": "X01-29140019-AWB",
+  "price_kzt": 55000,
+  "satu": "https://satu.kz/p134775058-zadnij-levyj-rychag.html"
+ },
+ {
+  "name": "Задний правый короткий рычаг с двумя сайлентблоками",
+  "oem": "X01-29140015-SMK",
+  "price_kzt": 25000,
+  "satu": "https://satu.kz/p134775060-zadnij-pravyj-korotkij.html"
+ },
+ {
+  "name": "Задний левый короткий рычаг с двумя сайлентблоками",
+  "oem": "X01-29140014-SMK",
+  "price_kzt": 25000,
+  "satu": "https://satu.kz/p134775061-zadnij-levyj-korotkij.html"
+ },
+ {
+  "name": "Верхний передний правый рычаг",
+  "oem": "X01-29040012-AWB",
+  "price_kzt": 45000,
+  "satu": "https://satu.kz/p134775063-verhnij-perednij-pravyj.html"
+ },
+ {
+  "name": "Верхний передний правый рычаг",
+  "oem": "X01-29040012-AWB",
+  "price_kzt": 45000,
+  "satu": "https://satu.kz/p134775064-verhnij-perednij-pravyj.html"
+ },
+ {
+  "name": "Верхний передний левый рычаг",
+  "oem": "X01-29040011-AWB",
+  "price_kzt": 45000,
+  "satu": "https://satu.kz/p134775066-verhnij-perednij-levyj.html"
+ },
+ {
+  "name": "Передний верхний рычаг подкова",
+  "oem": "LAA-29040020",
+  "price_kzt": 55000,
+  "satu": "https://satu.kz/p134775071-perednij-verhnij-rychag.html"
+ },
+ {
+  "name": "Передний верхний рычаг подкова",
+  "oem": "LAA-29040019",
+  "price_kzt": 55000,
+  "satu": "https://satu.kz/p134775072-perednij-verhnij-rychag.html"
+ },
+ {
+  "name": "Основной радиатор охлаждения",
+  "oem": "X01-13010011",
+  "price_kzt": 75000,
+  "satu": "https://satu.kz/p134838044-osnovnoj-radiator-ohlazhdeniya.html"
+ },
+ {
+  "name": "Основной радиатор охлаждения",
+  "oem": "X03-13010011",
+  "price_kzt": 60000,
+  "satu": "https://satu.kz/p134838050-osnovnoj-radiator-ohlazhdeniya.html"
+ },
+ {
+  "name": "Маленький верхний радиатор",
+  "oem": "X01-21270026",
+  "price_kzt": 80000,
+  "satu": "https://satu.kz/p134838057-malenkij-verhnij-radiator.html"
+ },
+ {
+  "name": "Маленький нижний радиатор",
+  "oem": "X01-21270027",
+  "price_kzt": 80000,
+  "satu": "https://satu.kz/p134838062-malenkij-nizhnij-radiator.html"
+ },
+ {
+  "name": "Радиатор двигателя верхний",
+  "oem": "X03-21270026",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134838375-radiator-dvigatelya-verhnij.html"
+ },
+ {
+  "name": "Радиатор двигателя нижний",
+  "oem": "X03-21270027",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134838378-radiator-dvigatelya-nizhnij.html"
+ },
+ {
+  "name": "Радиатор кондиционера",
+  "oem": "X01-81050012",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134838383-radiator-konditsionera-lixiang.html"
+ },
+ {
+  "name": "Радиатор кондиционера",
+  "oem": "X03-81050011",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134838391-radiator-konditsionera-lixiang.html"
+ },
+ {
+  "name": "Основной радиатор",
+  "oem": "LAA-13010026",
+  "price_kzt": 80000,
+  "satu": "https://satu.kz/p134838394-osnovnoj-radiator-lixiang.html"
+ },
+ {
+  "name": "Радиатор охлаждения батареи",
+  "oem": "LAA-30010020",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134838397-radiator-ohlazhdeniya-batarei.html"
+ },
+ {
+  "name": "Радиатор кондиционера",
+  "oem": "LAA-81050012",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134838410-radiator-konditsionera-lixiang.html"
+ },
+ {
+  "name": "Задний тормозной диск",
+  "oem": "X01-35010017-FD",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134775096-zadnij-tormoznoj-disk.html"
+ },
+ {
+  "name": "Передний тормозной диск",
+  "oem": "M01-35010003-FD",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134775098-perednij-tormoznoj-disk.html"
+ },
+ {
+  "name": "Передний тормозной диск",
+  "oem": "LAA-35020013-FD",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134775099-perednij-tormoznoj-disk.html"
+ },
+ {
+  "name": "Передний тормозной диск",
+  "oem": "LAA-35010013-FD",
+  "price_kzt": 50000,
+  "satu": "https://satu.kz/p134775104-perednij-tormoznoj-disk.html"
+ }
+]
