@@ -28,9 +28,17 @@
 3. Через 15–60 минут Vercel сам выпустит HTTPS-сертификат.
 4. После этого добавить сайт в Google Search Console и Яндекс Вебмастер и отправить `https://lixiangshop.kz/sitemap.xml`.
 
-## Другой хостинг
+## Как сайт опубликован сейчас
 
-Залейте содержимое папки `site/` в корень сайта (`public_html`). Адреса страниц заканчиваются на `/`, внутри каждой папки лежит `index.html`, поэтому подойдёт любой обычный хостинг.
+Хостинг PS.kz (Plesk), подписка viton.kz, домен lixiangshop.kz.
+
+- Plesk → Git: репозиторий `https://github.com/theonlyalibek/lixiangshopkz.git`, ветка `main`, автоматическое развёртывание в `/lixiangshop.kz`.
+- На GitHub стоит вебхук Plesk, поэтому каждый push в `main` сразу выкладывается на сервер.
+- Корневая папка домена: `lixiangshop.kz/site`. Наружу видна только папка `site/`, исходники из `src/` закрыты.
+- SSL: Let's Encrypt на lixiangshop.kz и www, продлевается сам. www перенаправляет на lixiangshop.kz.
+- `site/.htaccess` отдаёт страницу 404 и типы файлов.
+
+Если репозиторий станет приватным, в Plesk нужно перейти на SSH-адрес `git@github.com:theonlyalibek/lixiangshopkz.git` и добавить ключ из Plesk в Settings → Deploy keys.
 
 ## Как менять сайт
 
