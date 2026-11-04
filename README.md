@@ -40,6 +40,21 @@
 
 Если репозиторий станет приватным, в Plesk нужно перейти на SSH-адрес `git@github.com:theonlyalibek/lixiangshopkz.git` и добавить ключ из Plesk в Settings → Deploy keys.
 
+## Цены и товары из Rosta
+
+Каталог сверен с учётной системой Rosta (группа «Lixiangshop.kz»). Связь строк каталога с товарами Rosta лежит в `src/data/rosta-map.json`, цены сайта в `src/data/prices.json`.
+
+Обновить цены:
+
+```
+set ROSTA_KEY=ключ_из_Rosta
+python src/tools/rosta_pull.py C:\путь\вне\репозитория\rosta.json
+python src/tools/rosta_prices.py C:\путь\вне\репозитория\rosta.json
+python src/build.py
+```
+
+Потом commit и push. Ключ и выгрузку из Rosta в репозиторий не кладите: там остатки и внутренние данные. Наличие на сайте не показывается.
+
 ## Как менять сайт
 
 Нужен Python 3 и Pillow (`pip install pillow`).
@@ -50,7 +65,7 @@ python src/build.py
 
 Команда пересобирает `site/` целиком. Затем commit и push, Vercel опубликует сам.
 
-- Цена товара: `src/data/satu-prices.json`, по порядку строк каталога. `0` значит «по запросу».
+- Цена товара: `src/data/prices.json`, по порядку строк каталога, обновляется из Rosta. `0` значит «по запросу».
 - Новый товар: строка в `src/data/cat.json` (`[раздел, название, модели, OEM]`) и номер строки в `rows` нужной детали в `content.py` или `content3.py`. Фото кладите в `src/pimg/<номер строки>.webp`.
 - Тексты страниц деталей и статей: `content.py`.
 

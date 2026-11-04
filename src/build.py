@@ -6,7 +6,9 @@ sys.path.insert(0, HERE)
 import content as C
 import content2 as C2
 import content3 as C3
+import content4 as C4
 C3.apply(C)
+C4.apply(C)
 
 MODE = sys.argv[1] if len(sys.argv) > 1 else 'deploy'   # preview | deploy
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, '..', 'site')
@@ -25,7 +27,7 @@ PIMG = {}
 for _f in glob.glob(os.path.join(HERE, 'img-parts', 'part-*.webp')):
     PIMG[os.path.basename(_f)[5:-5]] = 'part-' + os.path.basename(_f)[5:-5]
 DATA = json.load(open(os.path.join(HERE, 'data', 'cat.json')))
-PRICE = [x['price_kzt'] for x in json.load(open(os.path.join(HERE, 'data', 'satu-prices.json')))]
+PRICE = json.load(open(os.path.join(HERE, 'data', 'prices.json')))  # from Rosta, see tools/rosta_prices.py
 PRICE += [0] * (len(DATA) - len(PRICE))
 def rub(v): return f'{v:,}'.replace(',', '\u202f') + '\u00a0₸'
 SATU = json.load(open(os.path.join(HERE, 'data', 'satu-parsed.json')))
