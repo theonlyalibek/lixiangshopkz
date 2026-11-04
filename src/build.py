@@ -51,8 +51,8 @@ ART = {a['slug']: a for a in C.ARTICLES}
 MOD = ['6', '7', '8', '9']
 BW = {'6': '62%', '7': '70%', '8': '78%', '9': '86%'}
 SEATS = {m['m']: m['seats'] for m in C.MODELS}
-UPD = '2026-11-02'
-UPD_RU = '2 ноября 2026'
+UPD = '2026-11-04'
+UPD_RU = '4 ноября 2026'
 e = html.escape
 
 def depth(key): return 0 if key == 'index' else key.count('/')
@@ -449,9 +449,9 @@ def art_parts(k, a):
 
 # ---------- poleznoe
 k = 'poleznoe'
-body = f'''<section class="ph wrap"><h1>Полезное</h1><p class="lede">Что проверить, если на Li что-то стучит, скрипит или течёт.</p></section>
+body = f'''<section class="ph wrap"><h1>Полезное</h1><p class="lede">Что проверить, если на Li что-то стучит, скрипит или течёт, и как подобрать деталь.</p></section>
 <section class="s wrap" style="padding-top:32px"><div class="arts big">{''.join(art_card(k, a) for a in C.ARTICLES)}</div></section>{cta(k)}'''
-pages[k] = layout(k, 'Полезное о ремонте Li L6, L7, L8, L9 | Lixiangshop.kz', 'Статьи о подвеске, тормозах, охлаждении и ТО Li Auto: признаки, проверка на VibroTest, подбор запчастей в Алматы.', body, crumbs=[('poleznoe', 'Полезное')])
+pages[k] = layout(k, 'Полезное о ремонте Li L6, L7, L8, L9 | Lixiangshop.kz', 'Статьи о подвеске, тормозах, охлаждении, ТО и подборе запчастей Li Auto: признаки, проверка на VibroTest и замена в Алматы.', body, crumbs=[('poleznoe', 'Полезное')])
 for a in C.ARTICLES:
     k = 'poleznoe/' + a['slug']
     out = ''
@@ -459,10 +459,14 @@ for a in C.ARTICLES:
         if t == 'p': out += '<p>' + links_md(k, v) + '</p>'
         elif t == 'h2': out += '<h2>' + e(v) + '</h2>'
         elif t == 'ul': out += '<ul class="sym">' + ''.join('<li>' + links_md(k, x) + '</li>' for x in v) + '</ul>'
+        elif t == 'table': out += '<table class="spec"><tbody>' + ''.join('<tr><th>%s</th><td>%s</td></tr>' % (e(x), e(y)) for x, y in v) + '</tbody></table>'
+    faqh = ''
+    if a.get('faq'): faqh = '<h2>Вопросы</h2><div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(ans)}</p></details>' for q, ans in a['faq']) + '</div>'
     body = f'''<article><section class="band">{band_pic(k, a['img'], e(a['title']))}<div class="copy wrap"><h1>{e(a['title'])}</h1></div></section>
-<section class="wrap art"><p class="upd">Обновлено {UPD_RU}</p>{out}{art_parts(k, a)}</section></article>{cta(k)}'''
+<section class="wrap art"><p class="upd">Обновлено {UPD_RU}</p>{out}{art_parts(k, a)}{faqh}</section></article>{cta(k)}'''
     ld = [{"@context": "https://schema.org", "@type": "Article", "headline": a['title'], "description": a['desc'], "inLanguage": "ru",
-           "image": DOMAIN + '/img/' + wide(a['img']) + '.webp', "publisher": {"@id": DOMAIN + "/#store"}, "author": {"@type": "Organization", "name": "Lixiangshop.kz", "url": DOMAIN + "/"}, "datePublished": "2026-11-01", "dateModified": UPD, "mainEntityOfPage": canon(k)}]
+           "image": DOMAIN + '/img/' + wide(a['img']) + '.webp', "publisher": {"@id": DOMAIN + "/#store"}, "author": {"@type": "Organization", "name": "Lixiangshop.kz", "url": DOMAIN + "/"}, "datePublished": a.get('date', "2026-11-01"), "dateModified": UPD, "mainEntityOfPage": canon(k)}]
+    if a.get('faq'): ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}} for q, ans in a['faq']]})
     pages[k] = layout(k, (a['title'].replace(' Li', ' Li (Lixiang)', 1) if 'Lixiang' not in a['title'] else a['title']) + ' | Lixiangshop.kz', a['desc'], body, crumbs=[('poleznoe', 'Полезное'), (k, a['title'])], ld=ld, og_img='img/' + wide(a['img']) + '.webp')
 
 # ---------- zamena
