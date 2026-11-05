@@ -1,3 +1,4 @@
+function goal(n){try{window.ym&&ym(114093598,'reachGoal',n)}catch(e){}}
 (function(){
 var $=function(s){return document.querySelector(s)};
 var WA=document.body.getAttribute('data-wa');
@@ -208,7 +209,7 @@ if(q&&window.SEARCH){
     save(cart);render();if(!cart.length)close()});
   sh.querySelector('[data-clear]').addEventListener('click',function(){cart=[];save(cart);render();close()});
   vin.addEventListener('input',function(){var v=vin.value.toUpperCase().replace(/[^A-Z0-9]/g,'').replace(/[OQ]/g,'0').replace(/I/g,'1').slice(0,17);if(vin.value!==v)vin.value=v;err.textContent=''});
-  sh.querySelector('[data-send]').addEventListener('click',function(){
+  sh.querySelector('[data-send]').addEventListener('click',function(){goal('cart_send');
     var v=vin.value;if(v&&!/^[A-HJ-NPR-Z0-9]{17}$/.test(v)){err.textContent='В VIN 17 символов, сейчас '+v.length;vin.focus();return}
     var m=myli(),t='Здравствуйте! Хочу заказать:\n'+cart.map(function(x,i){return (i+1)+'. '+x.n+(x.o?' ('+x.o+')':'')+(x.l?', '+x.l:'')+(x.q>1?', '+x.q+' шт.':'')+(x.p?' — '+money(x.p*x.q).replace(/ | /g,' '):'')}).join('\n')+
       (sum()?'\nИтого по сайту: '+money(sum()).replace(/ | /g,' '):'')+(m?'\nМоя машина: Li L'+m+'.':'')+(v?'\nVIN: '+v:'')+'\nПодскажите цену и наличие?';
@@ -220,3 +221,4 @@ if(q&&window.SEARCH){
   render();
 })();
 })();
+(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)goal(a.hasAttribute('data-add')||a.classList.contains('pa')?'cart_add':'whatsapp')},true)})();

@@ -71,6 +71,20 @@ VER = _h.md5(open(os.path.join(HERE, 'site.css'), 'rb').read() + open(os.path.jo
 def asset(cur, path):
     return ('/' if MODE == 'deploy' else '../' * depth(cur)) + path + ('?v=' + VER if path.endswith(('site.css', 'site.js')) else '')
 def canon(key): return DOMAIN + ('/' if key == 'index' else '/' + key + '/')
+METRIKA_ID = 114093598
+METRIKA = '''<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114093598', 'ym');
+
+    ym(114093598, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114093598" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->'''
 def wa(text): return 'https://wa.me/%s?text=%s' % (WA, __import__('urllib.parse').parse.quote(text))
 def models_of(rows):
     ms = set()
@@ -160,6 +174,7 @@ def layout(key, title, desc, body, crumbs=None, ld=None, home=False, og_img='img
 <link rel="apple-touch-icon" href="{asset(key, 'apple-touch-icon.png')}"><link rel="manifest" href="{asset(key, 'site.webmanifest')}">
 <link rel="stylesheet" href="{asset(key, 'assets/site.css')}">
 {''.join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + '</script>' for x in ld)}
+{METRIKA if MODE == 'deploy' else ''}
 </head>
 <body class="{'home' if home else 'inner'}{' has-sbar' if bar else ''}" data-wa="{WA}" data-models='{json.dumps({m: href(key, "modeli/li-l" + m) for m in MOD})}'>
 {intro}
@@ -533,7 +548,7 @@ PRIV = [
  ('6. Кому мы передаём данные', ['Мы не продаём и не передаём ваши данные третьим лицам, кроме случаев, предусмотренных законодательством Республики Казахстан. Если вы заказываете установку электроники у наших партнёров, мы передаём им модель автомобиля и описание задачи с вашего согласия.',
    'Если вы пишете нам в WhatsApp, переписка также обрабатывается этим мессенджером по его собственным правилам. Карты 2ГИС и Google открываются на их сайтах и работают по их правилам.']),
  ('7. Как мы защищаем данные', ['Доступ к данным есть только у сотрудников, которым они нужны для работы. Сайт работает по защищённому протоколу HTTPS. Мы принимаем организационные и технические меры против утраты, изменения и несанкционированного доступа к данным.']),
- ('8. Файлы cookie', ['Сайт может использовать файлы cookie, чтобы корректно работать и собирать обезличенную статистику посещений. Вы можете отключить cookie в настройках браузера: сайт продолжит работать.']),
+ ('8. Файлы cookie', ['Сайт может использовать файлы cookie, чтобы корректно работать и собирать обезличенную статистику посещений через Яндекс Метрику (включая запись действий на странице, Вебвизор). Вы можете отключить cookie в настройках браузера: сайт продолжит работать.']),
  ('9. Ваши права', [['Узнать, какие ваши данные у нас есть и как они используются.', 'Потребовать исправить, заблокировать или удалить данные.', 'Отозвать согласие на обработку.', 'Обжаловать наши действия в уполномоченном органе по защите персональных данных или в суде.'],
    'Чтобы воспользоваться этими правами, напишите или позвоните нам по номеру +7 747 219 42 28. Мы ответим в сроки, установленные законом.']),
  ('10. Изменения политики', ['Мы можем обновлять эту политику. Новая редакция действует с момента публикации на этой странице. Дата текущей редакции указана в начале документа.'])]
