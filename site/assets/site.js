@@ -145,7 +145,7 @@ if(q&&window.SEARCH){
   var KEY='cart',X='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
       BAG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" stroke-linecap="round"/></svg>',
       WAI='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>';
-  function load(){try{var c=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(c)?c:[]}catch(e){return []}}
+  function load(){try{var c=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(c)?c.map(function(x){x.p=0;return x}):[]}catch(e){return []}}
   function save(c){try{c.length?localStorage.setItem(KEY,JSON.stringify(c)):localStorage.removeItem(KEY)}catch(e){}}
   function myli(){try{return localStorage.getItem('myLi')}catch(e){return null}}
   function money(v){return String(v).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' ₸'}
@@ -161,7 +161,7 @@ if(q&&window.SEARCH){
     '<div class="shead"><h2 id="cartT">Корзина</h2><div class="chd"><button type="button" class="cclr" data-clear>Очистить</button><button type="button" class="ib" data-cx aria-label="Закрыть">'+X+'</button></div></div>'+
     '<div class="sbody"><ul class="clist"></ul><p class="ctot"><span>Итого</span><b></b></p>'+
     '<label class="fld"><span>VIN <small>по желанию</small></span><input class="vinf" maxlength="17" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="17 символов из техпаспорта"></label>'+
-    '<p class="err"></p><p class="snote">Наличие и итоговую цену подтверждаем по VIN.</p></div>'+
+    '<p class="err"></p><p class="snote">Цену и наличие подскажет менеджер в WhatsApp.</p></div>'+
     '<div class="sfoot"><button type="button" class="btn pri" data-send>'+WAI+'Отправить в WhatsApp</button></div></div>';
   document.body.appendChild(sh);
   var list=sh.querySelector('.clist'),tot=sh.querySelector('.ctot b'),vin=sh.querySelector('.vinf'),err=sh.querySelector('.err'),panel=sh.querySelector('.sheet-panel'),body=sh.querySelector('.sbody');
@@ -176,8 +176,8 @@ if(q&&window.SEARCH){
     bar.querySelector('.cb-s').textContent=sum()?money(sum()):'';
     list.innerHTML=cart.map(function(x){return '<li data-id="'+x.id+'"><div><b>'+esc(x.n)+'</b><span>'+esc([x.l,x.o].filter(Boolean).join(' · '))+'</span></div>'+
       '<div class="cq"><button type="button" data-d="-1" aria-label="Меньше">−</button><output>'+x.q+'</output><button type="button" data-d="1" aria-label="Больше">+</button></div>'+
-      '<em>'+(x.p?money(x.p*x.q):'по запросу')+'</em><button type="button" class="crm" data-rm aria-label="Убрать: '+esc(x.n)+'">'+X+'</button></li>'}).join('');
-    tot.textContent=sum()?money(sum()):'—';
+      '<em>'+(x.p?money(x.p*x.q):'')+'</em><button type="button" class="crm" data-rm aria-label="Убрать: '+esc(x.n)+'">'+X+'</button></li>'}).join('');
+    tot.textContent=sum()?money(sum()):'—';tot.parentNode.style.display=sum()?'':'none';
     document.querySelectorAll(ADD).forEach(function(a){var on=has(+a.closest('[data-id]').getAttribute('data-id'));
       if(!a.hasAttribute('data-t0'))a.setAttribute('data-t0',a.textContent);
       a.textContent=on?'✓ В корзине':a.getAttribute('data-t0');a.classList.toggle('in',on)});
@@ -211,7 +211,7 @@ if(q&&window.SEARCH){
   sh.querySelector('[data-send]').addEventListener('click',function(){
     var v=vin.value;if(v&&!/^[A-HJ-NPR-Z0-9]{17}$/.test(v)){err.textContent='В VIN 17 символов, сейчас '+v.length;vin.focus();return}
     var m=myli(),t='Здравствуйте! Хочу заказать:\n'+cart.map(function(x,i){return (i+1)+'. '+x.n+(x.o?' ('+x.o+')':'')+(x.l?', '+x.l:'')+(x.q>1?', '+x.q+' шт.':'')+(x.p?' — '+money(x.p*x.q).replace(/ | /g,' '):'')}).join('\n')+
-      (sum()?'\nИтого по сайту: '+money(sum()).replace(/ | /g,' '):'')+(m?'\nМоя машина: Li L'+m+'.':'')+(v?'\nVIN: '+v:'')+'\nЕсть в наличии?';
+      (sum()?'\nИтого по сайту: '+money(sum()).replace(/ | /g,' '):'')+(m?'\nМоя машина: Li L'+m+'.':'')+(v?'\nVIN: '+v:'')+'\nПодскажите цену и наличие?';
     var a=document.createElement('a');a.href='https://wa.me/'+document.body.getAttribute('data-wa')+'?text='+encodeURIComponent(t);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
   var y0=null,dy=0;
   panel.addEventListener('touchstart',function(e){if(body.contains(e.target)&&body.scrollTop>0)return;if(e.target.closest('input,button'))return;y0=e.touches[0].clientY;dy=0},{passive:true});

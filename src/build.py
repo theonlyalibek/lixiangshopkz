@@ -29,6 +29,10 @@ for _f in glob.glob(os.path.join(HERE, 'img-parts', 'part-*.webp')):
 DATA = json.load(open(os.path.join(HERE, 'data', 'cat.json')))
 PRICE = json.load(open(os.path.join(HERE, 'data', 'prices.json')))  # from Rosta, see tools/rosta_prices.py
 PRICE += [0] * (len(DATA) - len(PRICE))
+# Цены не показываем: их называет менеджер в WhatsApp. True вернёт цены на карточки, в корзину и разметку.
+SHOW_PRICES = False
+if not SHOW_PRICES: PRICE = [0] * len(PRICE)
+NOTE_PRICE = 'Цену и наличие подскажет менеджер в WhatsApp, номер сверим по VIN.'
 def rub(v): return f'{v:,}'.replace(',', '\u202f') + '\u00a0₸'
 SATU = json.load(open(os.path.join(HERE, 'data', 'satu-parsed.json')))
 SATU += [{}] * (len(DATA) - len(SATU))
@@ -284,9 +288,9 @@ for p in C.PARTS:
     rows = ''
     for r in p['rows']:
         name, rm, oem = DATA[r][1], DATA[r][2], DATA[r][3]
-        msg = f'Здравствуйте! Нужна деталь: {name}{" (" + oem + ")" if oem else ""}, Li{(" " + mlabel(list(rm))) if rm else ""}. Есть в наличии?'
+        msg = f'Здравствуйте! Нужна деталь: {name}{" (" + oem + ")" if oem else ""}, Li{(" " + mlabel(list(rm))) if rm else ""}. Подскажите цену?'
         num = ('<code>' + e(oem) + '</code>') if oem else 'номер по VIN'
-        pr = f'<span class="pp">{rub(PRICE[r])}</span>' if PRICE[r] else '<span class="pp na">по запросу</span>'
+        pr = f'<span class="pp">{rub(PRICE[r])}</span>' if PRICE[r] else ''
         rows += f'<li data-m="{rm}" data-id="{r}" data-n="{e(name)}" data-o="{e(oem or "")}" data-l="{mlabel(list(rm)) if rm else ""}" data-p="{PRICE[r] or 0}"><a class="pn" href="{href(k, pkey(r))}"><b>{e(name)}</b></a>{pr}<span class="pm">{mlabel(list(rm))} · {num}</span><a class="pa" href="{wa(msg)}" target="_blank" rel="noopener" aria-label="В корзину: {e(name)}">В корзину</a></li>'
     faq = ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in p['faq'])
     sib = ''.join(f'<a href="{href(k, "zapchasti/" + q["slug"])}">{e(q["short"])}</a>' for q in C.PARTS if q['sys'] == p['sys'] and q['slug'] != p['slug'])
@@ -326,7 +330,7 @@ for p in C.PARTS:
 <div class="btns dsk"><a class="btn pri" href="{wa(askmsg)}" target="_blank" rel="noopener">{ICON_WA}Подобрать по VIN</a></div></section>
 <section class="wrap art" style="padding-top:28px">
 <ul class="prow">{rows}</ul>
-<p class="pnote">Наличие и итоговую цену подтверждаем по VIN.</p>
+<p class="pnote">{NOTE_PRICE}</p>
 {('<p class="muted">' + e(p['note']) + '</p>') if p['note'] else ''}
 {fig}
 {symblock}
@@ -354,7 +358,7 @@ for p in C.PARTS:
         img = pimg(r) or ('img/' + wide(PIMG[p['slug']]) + '.webp' if PIMG.get(p['slug']) else None)
         sat = SATU[r]
         maker = dict(sat.get('attrs') or []).get('Производитель', '')
-        msg = f'Здравствуйте! Нужна деталь: {name}{" (" + oem + ")" if oem else ""}, {forli}. Есть в наличии?'
+        msg = f'Здравствуйте! Нужна деталь: {name}{" (" + oem + ")" if oem else ""}, {forli}. Подскажите цену?'
         data = f'data-m="{rm}" data-id="{r}" data-n="{e(name)}" data-o="{e(oem or "")}" data-l="{ml}" data-p="{price or 0}"'
         answer = (f'В Lixiangshop в Алматы. {name} для {forli}'
                   + (f', номер {oem}' if oem else '') + (f', цена {rub(price).replace(chr(0x202f), " ").replace(chr(0xa0), " ")}' if price else '')
@@ -371,10 +375,10 @@ for p in C.PARTS:
 <div class="pgrid">{fig}<div class="pinfo">
 <h1>{e(name)} для {e(forli)}</h1>
 {f'<p class="poem">OEM <code>{e(oem)}</code></p>' if oem else ''}
-{f'<p class="pprice">{rub(price)}</p>' if price else '<p class="pprice na">Цена по запросу</p>'}
+{f'<p class="pprice">{rub(price)}</p>' if price else '<p class="pprice na">Цена по запросу в WhatsApp</p>'}
 <p class="pfit" data-fitm="{rm}">Подходит: {e(forli)}</p>
-<div class="btns"><a class="btn pri pa" href="{wa(msg)}" target="_blank" rel="noopener" data-add>В корзину</a><a class="btn sec" href="{wa(msg)}" target="_blank" rel="noopener">{ICON_WA}Спросить в WhatsApp</a></div>
-<p class="pnote">Наличие и итоговую цену подтверждаем по VIN.</p>
+<div class="btns"><a class="btn pri pa" href="{wa(msg)}" target="_blank" rel="noopener" data-add>В корзину</a><a class="btn sec" href="{wa(msg)}" target="_blank" rel="noopener">{ICON_WA}Узнать цену</a></div>
+<p class="pnote">{NOTE_PRICE}</p>
 </div></div></section>
 <section class="wrap art" style="padding-top:8px">
 <h2>Где купить в Алматы</h2><p>{e(answer)}</p>
@@ -503,7 +507,7 @@ body = f'''<section class="ph wrap"><h1>Контакты</h1></section>
 KFAQ = [('Вы официальный дилер Li Auto?', 'Нет. Lixiangshop.kz — независимый магазин запчастей для Li L6, L7, L8 и L9 в Алматы.'),
         ('Где поменять деталь?', 'Там же, на подъёмнике VibroTest: он в одном комплексе с магазином на Аносова 91. Электронику устанавливают наши партнёры.'),
         ('Как подобрать деталь?', 'Пришлите VIN в WhatsApp +7 747 219 42 28. Подберём по номеру детали.'),
-        ('Где узнать цену и наличие?', 'Цены указаны на страницах деталей. Наличие и точный номер подтверждаем в WhatsApp по VIN.'),
+        ('Где узнать цену и наличие?', 'Напишите в WhatsApp: менеджер назовёт цену и сверит номер по VIN.'),
         ('Подойдут ли детали к Li 2026 года?', 'В 2026 году вышли обновлённые L6, L8 и L9. Чтобы деталь точно подошла, подбираем по VIN.'),
         ('Во сколько вы работаете?', 'Каждый день с 09:30 до 19:00, без выходных.'),
         ('Как вас найти?', 'Алматы, ул. Аносова, 91, в одном комплексе с Viton и VibroTest. Остановка «Розыбакиева» в 270 м. Ищите синюю вывеску LIXIANG SHOP.KZ.'),
@@ -573,7 +577,7 @@ if MODE == 'deploy':
 L = ['# Lixiangshop.kz', '', '> Независимый магазин запчастей для Li Auto L6, L7, L8, L9 в Алматы. Не является официальным дилером Li Auto.', '',
      '- Адрес: Алматы, ул. Аносова, 91 (один комплекс с Viton и VibroTest)', '- Часы: ежедневно 09:30–19:00, без выходных', '- Как найти: остановка «Розыбакиева» в 270 м, синяя вывеска LIXIANG SHOP.KZ рядом с VITON и VIBROTEST.KZ', '- Основатель: Виктор Новиков (также основатель Viton и VibroTest). Продавец: ИП Новиков', '- Отзывы: ' + GIS_REV,
      '- Рядом на той же площадке: Viton (https://viton.kz/ru/), чистка форсунок и диагностика двигателя; VibroTest (https://vibrotest.kz/ru/), диагностика ходовой на вибростенде', '- Телефон и WhatsApp: ' + PHONE, '- Instagram: https://www.instagram.com/lixiangshop.kz/',
-     '- Цены указаны на страницах деталей. Подбор по VIN, наличие подтверждается в WhatsApp.', '- Проверка подвески на вибростенде VibroTest и замена механики на подъёмнике на месте. Электронику устанавливают партнёры.', '',
+     '- Цену называет менеджер в WhatsApp. Подбор по VIN.', '- Проверка подвески на вибростенде VibroTest и замена механики на подъёмнике на месте. Электронику устанавливают партнёры.', '',
      '## Разделы', '- [Каталог](%s): %d позиций' % (canon('katalog'), len(DATA))] + ['- [%s](%s)' % (x['name'], canon('katalog/' + x['slug'])) for x in C.SYSTEMS] + \
     ['', '## Товары'] + ['- [%s для Li%s%s](%s)' % (DATA[r][1], (' ' + mlabel(list(DATA[r][2]))) if DATA[r][2] else '', (', ' + DATA[r][3]) if DATA[r][3] else '', canon(pkey(r))) for p in C.PARTS for r in p['rows']] + \
     ['', '## Модели'] + ['- [Запчасти для Li L%s](%s)' % (m, canon('modeli/li-l' + m)) for m in MOD] + \
