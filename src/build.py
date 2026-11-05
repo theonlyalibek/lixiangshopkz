@@ -296,6 +296,7 @@ for s in C.SYSTEMS:
         crumbs=[('katalog', 'Каталог'), (k, s['name'])], og_img='img/' + wide(s['img']) + '.webp')
 
 # ---------- parts
+POPULAR = ['stoyki-stabilizatora', 'perednie-rychagi', 'tormoznye-kolodki', 'tormoznye-diski', 'rulevye-nakonechniki', 'zadnie-rychagi', 'stupicy', 'saylentbloki', 'privody', 'salonnyy-filtr', 'maslyanyy-filtr', 'vozdushnyy-filtr']
 for p in C.PARTS:
     k = 'zapchasti/' + p['slug']
     s = SYS[p['sys']]
@@ -335,6 +336,7 @@ for p in C.PARTS:
     pim = PIMG.get(p['slug'])
     fig = f'<figure class="pimg sm"><img src="{asset(k, "img/" + wide(pim) + ".webp")}" alt="{e(p["name"])}" loading="lazy"></figure>' if pim else ''
     askmsg = 'Здравствуйте! Нужно: ' + p['name'].lower() + ' для Li. VIN: '
+    bym = ('<div class="chips" style="margin-top:16px">' + ''.join(f'<a href="{href(k, "modeli/li-l" + m + "/" + p["slug"])}">{e(p["short"])} Li L{m}</a>' for m in MOD if any(m in DATA[r][2] for r in p['rows'])) + '</div>') if p['slug'] in POPULAR else ''
     bar = f'<div class="sbar"><a class="btn pri" href="{wa(askmsg)}" target="_blank" rel="noopener">{ICON_WA}Подобрать по VIN</a></div>'
     ld = []
     if p['faq']:
@@ -345,7 +347,7 @@ for p in C.PARTS:
 <div class="btns dsk"><a class="btn pri" href="{wa(askmsg)}" target="_blank" rel="noopener">{ICON_WA}Подобрать по VIN</a></div></section>
 <section class="wrap art" style="padding-top:28px">
 <ul class="prow">{rows}</ul>
-<p class="pnote">{NOTE_PRICE}</p>
+{bym}<p class="pnote">{NOTE_PRICE}</p>
 {('<p class="muted">' + e(p['note']) + '</p>') if p['note'] else ''}
 {fig}
 {symblock}
@@ -419,7 +421,6 @@ for p in C.PARTS:
             ld=[prod_ld], og_img=img or 'img/hero-desktop.webp', bar=bar)
 
 # ---------- models
-POPULAR = ['stoyki-stabilizatora', 'perednie-rychagi', 'tormoznye-kolodki', 'tormoznye-diski', 'rulevye-nakonechniki', 'zadnie-rychagi', 'stupicy', 'saylentbloki', 'privody', 'salonnyy-filtr', 'maslyanyy-filtr', 'vozdushnyy-filtr']
 for mm in C.MODELS:
     m = mm['m']; k = 'modeli/li-l' + m
     tiles = ''; srcs = ''; total = 0
@@ -437,7 +438,7 @@ for mm in C.MODELS:
         note = '<p class="snote">Устанавливают партнёры, подбор у нас.</p>' if s['install'] == 'partner' else ''
         srcs += f'<div class="ssrc" id="src-{s["slug"]}" hidden data-title="{e(s["name"])}" data-img="{asset(k, "img/" + wide(s["img"]) + ".webp")}" data-all="{href(k, "katalog/" + s["slug"])}"><ul class="slist">{items}</ul>{note}</div>'
     pop = [x for x in POPULAR if any(m in DATA[r][2] for r in PART[x]['rows'])][:8]
-    chips = ''.join(f'<a href="{href(k, "zapchasti/" + x)}">{e(PART[x]["short"])}</a>' for x in pop)
+    chips = ''.join(f'<a href="{href(k, "modeli/li-l" + m + "/" + x)}">{e(PART[x]["short"])}</a>' for x in pop)
     others = ''.join(f'<a href="{href(k, "modeli/li-l" + x)}">Li L{x}</a>' for x in MOD if x != m)
     sheet = f'''<div class="sheet" id="sheet" aria-hidden="true"><div class="sheet-bg" data-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheetT"><div class="grab" aria-hidden="true"></div>
@@ -456,6 +457,61 @@ for mm in C.MODELS:
     pages[k] = layout(k, f'Запчасти для Li L{m} (Lixiang L{m}) в Алматы | Lixiangshop.kz',
         f'Запчасти для Li Auto L{m} (Lixiang L{m}): подвеска, тормоза, охлаждение, рулевое, приводы, фильтры. Подбор по VIN и замена в Алматы.',
         body, crumbs=[('katalog', 'Каталог'), (k, 'Li L' + m)], og_img='img/car-l' + m + '-wide.webp')
+
+
+# ---------- model × part landings: «тормозные колодки Li L6»
+MP = {}
+for p in C.PARTS:
+    if p['slug'] not in POPULAR: continue
+    for m in MOD:
+        rr = [r for r in p['rows'] if m in DATA[r][2]]
+        if rr: MP[(m, p['slug'])] = rr
+for (m, sl), rr in MP.items():
+    p = PART[sl]; s = SYS[p['sys']]; k = 'modeli/li-l' + m + '/' + sl
+    nm = p['name']; low = lc1(nm)
+    rows = ''
+    for r in rr:
+        name, rm, oem = DATA[r][1], DATA[r][2], DATA[r][3]
+        msg = f'Здравствуйте! Нужна деталь: {name}{" (" + oem + ")" if oem else ""}, Li L{m}. Подскажите цену?'
+        num = ('<code>' + e(oem) + '</code>') if oem else 'номер по VIN'
+        rows += f'<li data-m="{rm}" data-id="{r}" data-n="{e(name)}" data-o="{e(oem or "")}" data-l="L{m}" data-p="0"><a class="pn" href="{href(k, pkey(r))}"><b>{e(name)}</b></a><span class="pm">{mlabel(list(rm))} · {num}</span><a class="pa" href="{wa(msg)}" target="_blank" rel="noopener" aria-label="В корзину: {e(name)}">В корзину</a></li>'
+    nums = [DATA[r][3] for r in rr if DATA[r][3]]
+    only = [r for r in rr if DATA[r][2] == m]
+    shared = sorted({x for r in rr for x in DATA[r][2] if x != m})
+    where = ('устанавливают наши партнёры' if s['install'] == 'partner' else 'меняем на подъёмнике VibroTest')
+    n = len(rr)
+    short = (f'{nm} для Li L{m} (Lixiang L{m}) в Lixiangshop.kz, Алматы: {n} {plural(n, "позиция", "позиции", "позиций")}'
+             + (f', номера {", ".join(nums[:4])}' if nums else '') + f'. Номер сверяем по VIN, {where}. Цену подскажет менеджер в WhatsApp.')
+    if only and len(only) == n: fit = f'Нет. Все позиции в этом разделе сделаны только под L{m}, детали от других Li не подойдут.'
+    elif shared: fit = f'Часть позиций общая с {", ".join("L" + x for x in shared)}, часть своя. Какая стоит на вашей машине, сверим по VIN.'
+    else: fit = f'Сверим по VIN: у разных лет выпуска L{m} номера могут отличаться.'
+    faq = [(f'Где купить {low} на Li L{m} в Алматы?', f'В Lixiangshop.kz, независимом магазине запчастей для Li в Алматы. Номер сверяем по VIN, {where}. Напишите в WhatsApp, менеджер назовёт цену.'),
+           (f'{nm} для Li L{m}: какой номер OEM?', ('; '.join(f'{DATA[r][1]}: {DATA[r][3]}' for r in rr if DATA[r][3]) + '.') if nums else 'Подбираем по VIN.'),
+           (f'{"Подходят" if nm.split()[0][-1] in "иые" else "Подходит"} ли {low} от других моделей Li на L{m}?', fit)]
+    faq_html = ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faq)
+    others = ''.join(f'<a href="{href(k, "modeli/li-l" + x + "/" + sl)}">Li L{x}</a>' for x in MOD if x != m and (x, sl) in MP)
+    more = ''.join(f'<a href="{href(k, "modeli/li-l" + m + "/" + y)}">{e(PART[y]["short"])}</a>' for y in POPULAR if y != sl and (m, y) in MP)
+    askmsg = f'Здравствуйте! Нужно: {low} для Li L{m}. VIN: '
+    bar = f'<div class="sbar"><a class="btn pri" href="{wa(askmsg)}" target="_blank" rel="noopener">{ICON_WA}Подобрать по VIN</a></div>'
+    body = f"""<section class="ph wrap"><h1>{e(nm)} для Li L{m} в Алматы</h1><div class="short"><p class="lbl">Коротко</p><p>{e(short)}</p></div>
+<div class="btns dsk"><a class="btn pri" href="{wa(askmsg)}" target="_blank" rel="noopener">{ICON_WA}Подобрать по VIN</a></div></section>
+<section class="wrap art" style="padding-top:28px">
+<h2>{e(nm)} на L{m}</h2><ul class="prow">{rows}</ul>
+<p class="pnote">{NOTE_PRICE}</p>
+<h2>Когда менять</h2><ul class="sym">{''.join('<li>' + e(x) + '</li>' for x in p['sym'])}</ul>
+<h2>Проверка и замена</h2><p>{e(p['check'])}</p>
+<h2>Вопросы</h2><div class="faqh">{faq_html}</div>
+{('<h2>' + e(nm) + ' для других Li</h2><div class="chips">' + others + '</div>') if others else ''}
+<h2>Ещё для Li L{m}</h2><div class="chips">{more}<a href="{href(k, "modeli/li-l" + m)}">Все запчасти L{m}</a></div>
+<a class="more-link" href="{href(k, "zapchasti/" + sl)}">{e(nm)} для всех Li {ICON_ARROW}</a>
+</section>
+{cta(k, m=m)}"""
+    ld = [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]},
+          {"@context": "https://schema.org", "@type": "ItemList", "name": f'{nm} для Li L{m}', "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": canon(pkey(r)), "name": DATA[r][1] + f' для Li L{m}'} for i, r in enumerate(rr)]}]
+    title = f'{nm} Li L{m} (Lixiang L{m}) купить в Алматы | Lixiangshop.kz'
+    desc = f'{nm} для Li L{m} (Lixiang L{m}) в Алматы{(": " + ", ".join(nums[:2])) if nums else ""}. Подбор по VIN, {where}. Цена в WhatsApp.'
+    if len(desc) > 160: desc = f'{nm} для Li L{m} (Lixiang L{m}) в Алматы. Подбор по VIN, {where}. Цена в WhatsApp.'
+    pages[k] = layout(k, title, desc, body, crumbs=[('katalog', 'Каталог'), ('modeli/li-l' + m, 'Li L' + m), (k, nm)], ld=ld, bar=bar)
 
 def art_parts(k, a):
     slugs = []
@@ -588,6 +644,7 @@ for f in glob.glob(os.path.join(HERE, 'img-parts', '*.webp')) + glob.glob(os.pat
 if MODE == 'deploy':
     open(os.path.join(OUT, 'sitemap.xml'), 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join('<url><loc>%s</loc><lastmod>%s</lastmod></url>\n' % (canon(k), UPD) for k in pages) + '</urlset>\n')
     open(os.path.join(OUT, '.htaccess'), 'w').write('ErrorDocument 404 /404.html\nDirectoryIndex index.html\nAddType application/manifest+json .webmanifest\nAddType font/woff2 .woff2\n<IfModule mod_headers.c>\n  <FilesMatch "\\.(webp|png|jpg|ico|woff2)$">\n    Header set Cache-Control "public, max-age=604800"\n  </FilesMatch>\n</IfModule>\n')
+    open(os.path.join(OUT, 'e864aec0b98bbd3f6b2ffc80e169086f.txt'), 'w').write('e864aec0b98bbd3f6b2ffc80e169086f')  # IndexNow key (Bing, Yandex): tools/indexnow.py
     open(os.path.join(OUT, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n' % DOMAIN)
 L = ['# Lixiangshop.kz', '', '> Независимый магазин запчастей для Li Auto L6, L7, L8, L9 в Алматы. Не является официальным дилером Li Auto.', '',
      '- Адрес: Алматы, ул. Аносова, 91 (один комплекс с Viton и VibroTest)', '- Часы: ежедневно 09:30–19:00, без выходных', '- Как найти: остановка «Розыбакиева» в 270 м, синяя вывеска LIXIANG SHOP.KZ рядом с VITON и VIBROTEST.KZ', '- Основатель: Виктор Новиков (также основатель Viton и VibroTest). Продавец: ИП Новиков', '- Отзывы: ' + GIS_REV,
@@ -596,6 +653,7 @@ L = ['# Lixiangshop.kz', '', '> Независимый магазин запча
      '## Разделы', '- [Каталог](%s): %d позиций' % (canon('katalog'), len(DATA))] + ['- [%s](%s)' % (x['name'], canon('katalog/' + x['slug'])) for x in C.SYSTEMS] + \
     ['', '## Товары'] + ['- [%s для Li%s%s](%s)' % (DATA[r][1], (' ' + mlabel(list(DATA[r][2]))) if DATA[r][2] else '', (', ' + DATA[r][3]) if DATA[r][3] else '', canon(pkey(r))) for p in C.PARTS for r in p['rows']] + \
     ['', '## Модели'] + ['- [Запчасти для Li L%s](%s)' % (m, canon('modeli/li-l' + m)) for m in MOD] + \
+    ['- [%s для Li L%s](%s)' % (PART[sl]['name'], m, canon('modeli/li-l' + m + '/' + sl)) for (m, sl) in MP] + \
     ['', '## Полезное'] + ['- [%s](%s): %s' % (a['title'], canon('poleznoe/' + a['slug']), a['desc']) for a in C.ARTICLES] + \
     ['', '## Сервис', '- [Проверка и замена на VibroTest](%s)' % canon('zamena'), '- [Контакты](%s)' % canon('kontakty'), '- [Политика данных](%s)' % canon('privacy')]
 open(os.path.join(OUT, 'llms.txt'), 'w').write('\n'.join(L) + '\n')
