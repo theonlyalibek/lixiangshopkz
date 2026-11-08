@@ -395,6 +395,7 @@ for p in C.PARTS:
 {f'<p class="pprice">{rub(price)}</p>' if price else '<p class="pprice na">Цена по запросу в WhatsApp</p>'}
 <p class="pfit" data-fitm="{rm}">Подходит: {e(forli)}</p>
 <div class="btns"><a class="btn pri pa" href="{wa(msg)}" target="_blank" rel="noopener" data-add>В корзину</a><a class="btn sec" href="{wa(msg)}" target="_blank" rel="noopener">{ICON_WA}Узнать цену</a></div>
+{f'<p class="pnote"><a class="more-link" href="{wa(msg.replace(". Подскажите цену?", ", с заменой на VibroTest. Подскажите цену детали и работы и когда можно приехать?"))}" target="_blank" rel="noopener">Купить с установкой на VibroTest {ICON_ARROW}</a></p>' if s['install'] != 'partner' else ''}
 <p class="pnote">{NOTE_PRICE}</p>
 </div></div></section>
 <section class="wrap art" style="padding-top:8px">
@@ -440,6 +441,12 @@ for mm in C.MODELS:
     pop = [x for x in POPULAR if any(m in DATA[r][2] for r in PART[x]['rows'])][:8]
     chips = ''.join(f'<a href="{href(k, "modeli/li-l" + m + "/" + x)}">{e(PART[x]["short"])}</a>' for x in pop)
     others = ''.join(f'<a href="{href(k, "modeli/li-l" + x)}">Li L{x}</a>' for x in MOD if x != m)
+    kit = [r for sl in ('maslyanyy-filtr', 'vozdushnyy-filtr', 'salonnyy-filtr') for r in PART[sl]['rows'] if m in DATA[r][2]]
+    kitmsg = f'Здравствуйте! Нужен комплект фильтров для ТО Li L{m}:\n' + '\n'.join(f'{i + 1}. {DATA[r][1]} ({DATA[r][3]})' for i, r in enumerate(kit)) + '\nПодскажите цену?'
+    kitrows = ''.join(f'<li><a href="{href(k, pkey(r))}"><span>{e(DATA[r][1])}</span><small>{e(DATA[r][3])}</small></a></li>' for r in kit)
+    kitblock = (f'<section class="s wrap" style="padding-top:64px"><h2 class="h2">Фильтры для ТО Li L{m}</h2><ul class="plist">{kitrows}</ul>'
+                f'<div class="btns" style="margin-top:16px"><a class="btn pri" href="{wa(kitmsg)}" target="_blank" rel="noopener">{ICON_WA}Заказать комплект</a></div>'
+                f'<p class="pnote">Номера сверим по VIN.</p></section>') if len(kit) == 3 else ''
     sheet = f'''<div class="sheet" id="sheet" aria-hidden="true"><div class="sheet-bg" data-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheetT"><div class="grab" aria-hidden="true"></div>
 <div class="shead"><h2 id="sheetT">Запчасти</h2><button class="ib" data-close aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
@@ -450,6 +457,7 @@ for mm in C.MODELS:
 <figure class="pimg wrap model"><img src="{asset(k, 'img/car-l' + m + '-wide.webp')}" alt="Li L{m}"></figure>
 <section class="s wrap" style="padding-top:48px"><h2 class="h2">Что ищете?</h2><div class="tiles">{tiles}</div></section>
 <section class="s wrap" style="padding-top:64px"><h2 class="h2">Быстро найти</h2><div class="chips big">{chips}</div></section>
+{kitblock}
 <section class="s wrap" style="padding-top:64px"><h2 class="h2">Другие модели</h2><div class="chips">{others}</div></section>
 {srcs}
 {cta(k, m=m)}
