@@ -40,6 +40,16 @@ _TR = dict(zip('абвгдеёжзийклмнопрстуфхцчшщъыьэю
 def translit(t):
     t = ''.join(_TR.get(ch, ch) for ch in t.lower())
     return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', t)).strip('-')
+# одинаковые строки (название, модели, OEM) показываем один раз: дубль из импорта, в Rosta это один товар
+_seen = set()
+for _p in C.PARTS:
+    _keep = []
+    for _r in _p['rows']:
+        _t = tuple(DATA[_r][1:4])
+        if _t in _seen: continue
+        _seen.add(_t); _keep.append(_r)
+    _p['rows'] = _keep
+NPOS = len(_seen)
 ROWPART = {}
 def pslug(r):
     name, ms, oem = DATA[r][1], DATA[r][2], DATA[r][3]
@@ -263,7 +273,7 @@ for s in C.SYSTEMS:
     npos = sum(len(p['rows']) for p in C.PARTS if p['sys'] == s['slug'])
     groups += f'<details class="grp"><summary><span>{e(s["name"])}</span><small>{npos} {plural(npos, "позиция", "позиции", "позиций")}</small></summary><ul class="plist">{items}</ul><a class="more-link gl" href="{href(k, "katalog/" + s["slug"])}">Весь раздел {ICON_ARROW}</a></details>'
 search_data = [[DATA[r][1], DATA[r][3], DATA[r][2], p['slug'] + '/' + pslug(r), p['name']] for p in C.PARTS for r in p['rows']]
-body = f'''<section class="ph wrap"><h1>Каталог запчастей Li</h1><p class="lede">{len(DATA)} позиций для L6, L7, L8 и L9. Подбор по VIN, замена на месте в Алматы.</p>
+body = f'''<section class="ph wrap"><h1>Каталог запчастей Li</h1><p class="lede">{NPOS} позиций для L6, L7, L8 и L9. Подбор по VIN, замена на месте в Алматы.</p>
 <div class="myli" data-myli></div><p class="fit" id="fit" data-scope="catalog"></p>
 <input class="search" id="q" type="search" placeholder="Деталь или номер" aria-label="Поиск по каталогу" autocomplete="off"><ul class="list" id="results" hidden></ul></section>
 <section class="s wrap" style="padding-top:40px"><div class="tiles">{''.join(tile(k, s) for s in C.SYSTEMS)}</div></section>
@@ -273,7 +283,7 @@ body = f'''<section class="ph wrap"><h1>Каталог запчастей Li</h1
 {cta(k)}
 <script>window.SEARCH={json.dumps(search_data, ensure_ascii=False)};</script>'''
 pages[k] = layout(k, 'Каталог запчастей Li (Lixiang) L6, L7, L8, L9 в Алматы | Lixiangshop.kz',
-    f'Каталог: {len(DATA)} запчастей для Li Auto L6, L7, L8, L9. Подвеска, тормоза, охлаждение, рулевое, приводы, двигатель, фильтры. Алматы, Аносова 91.',
+    f'Каталог: {NPOS} запчастей для Li Auto L6, L7, L8, L9. Подвеска, тормоза, охлаждение, рулевое, приводы, двигатель, фильтры. Алматы, Аносова 91.',
     body, crumbs=[('katalog', 'Каталог')])
 
 # ---------- systems
@@ -658,7 +668,7 @@ L = ['# Lixiangshop.kz', '', '> Независимый магазин запча
      '- Адрес: Алматы, ул. Аносова, 91 (один комплекс с Viton и VibroTest)', '- Часы: ежедневно 09:30–19:00, без выходных', '- Как найти: остановка «Розыбакиева» в 270 м, синяя вывеска LIXIANG SHOP.KZ рядом с VITON и VIBROTEST.KZ', '- Основатель: Виктор Новиков (также основатель Viton и VibroTest). Продавец: ИП Новиков', '- Отзывы: ' + GIS_REV,
      '- Рядом на той же площадке: Viton (https://viton.kz/ru/), чистка форсунок и диагностика двигателя; VibroTest (https://vibrotest.kz/ru/), диагностика ходовой на вибростенде', '- Телефон и WhatsApp: ' + PHONE, '- Instagram: https://www.instagram.com/lixiangshop.kz/',
      '- Цену называет менеджер в WhatsApp. Подбор по VIN.', '- Проверка подвески на вибростенде VibroTest и замена механики на подъёмнике на месте. Электронику устанавливают партнёры.', '',
-     '## Разделы', '- [Каталог](%s): %d позиций' % (canon('katalog'), len(DATA))] + ['- [%s](%s)' % (x['name'], canon('katalog/' + x['slug'])) for x in C.SYSTEMS] + \
+     '## Разделы', '- [Каталог](%s): %d позиций' % (canon('katalog'), NPOS)] + ['- [%s](%s)' % (x['name'], canon('katalog/' + x['slug'])) for x in C.SYSTEMS] + \
     ['', '## Товары'] + ['- [%s для Li%s%s](%s)' % (DATA[r][1], (' ' + mlabel(list(DATA[r][2]))) if DATA[r][2] else '', (', ' + DATA[r][3]) if DATA[r][3] else '', canon(pkey(r))) for p in C.PARTS for r in p['rows']] + \
     ['', '## Модели'] + ['- [Запчасти для Li L%s](%s)' % (m, canon('modeli/li-l' + m)) for m in MOD] + \
     ['- [%s для Li L%s](%s)' % (PART[sl]['name'], m, canon('modeli/li-l' + m + '/' + sl)) for (m, sl) in MP] + \

@@ -14,7 +14,7 @@
 - Проверка подвески на вибростенде VibroTest и замена механики на подъёмнике на месте. Электронику устанавливают партнёры.
 
 ## Разделы
-- [Каталог](https://lixiangshop.kz/katalog/): 290 позиций
+- [Каталог](https://lixiangshop.kz/katalog/): 289 позиций
 - [Подвеска](https://lixiangshop.kz/katalog/podveska/)
 - [Охлаждение](https://lixiangshop.kz/katalog/ohlazhdenie/)
 - [Тормоза](https://lixiangshop.kz/katalog/tormoza/)
@@ -31,7 +31,6 @@
 - [Передний нижний рычаг левый для Li L9, X01-20020028-AWB](https://lixiangshop.kz/zapchasti/perednie-rychagi/peredniy-nizhniy-rychag-levyy-li-l9-x01-20020028-awb/)
 - [Передний нижний правый рычаг подвески для Li L7, X01-29040017-AWB](https://lixiangshop.kz/zapchasti/perednie-rychagi/peredniy-nizhniy-pravyy-rychag-podveski-li-l7-x01-29040017-awb/)
 - [Передний нижний левый рычаг подвески для Li L7, X01-29040016-AWB](https://lixiangshop.kz/zapchasti/perednie-rychagi/peredniy-nizhniy-levyy-rychag-podveski-li-l7-x01-29040016-awb/)
-- [Верхний передний правый рычаг для Li L7, L8, L9, X01-29040012-AWB](https://lixiangshop.kz/zapchasti/perednie-rychagi/verkhniy-peredniy-pravyy-rychag-li-l7-l8-l9-x01-29040012-awb/)
 - [Верхний передний правый рычаг для Li L7, L8, L9, X01-29040012-AWB](https://lixiangshop.kz/zapchasti/perednie-rychagi/verkhniy-peredniy-pravyy-rychag-li-l7-l8-l9-x01-29040012-awb/)
 - [Верхний передний левый рычаг для Li L7, L8, L9, X01-29040011-AWB](https://lixiangshop.kz/zapchasti/perednie-rychagi/verkhniy-peredniy-levyy-rychag-li-l7-l8-l9-x01-29040011-awb/)
 - [Передний верхний рычаг подкова для Li L6, LAA-29040020](https://lixiangshop.kz/zapchasti/perednie-rychagi/peredniy-verkhniy-rychag-podkova-li-l6-laa-29040020/)
@@ -375,7 +374,7 @@
 - [Течёт антифриз или ошибка температуры на Li](https://lixiangshop.kz/poleznoe/ohlazhdenie-li/): Течь антифриза, ошибка температуры, слабый кондиционер на Li L6, L7, L8, L9: радиаторы, патрубки, помпы в Алматы.
 - [ТО Li: какие фильтры менять](https://lixiangshop.kz/poleznoe/to-li-filtry/): Масляный, воздушный и салонный фильтр для Li L6, L7, L8, L9: номера деталей и замена в Алматы.
 - [Как подобрать запчасть для Li по VIN](https://lixiangshop.kz/poleznoe/podbor-zapchastey-li-po-vin/): Подбор запчастей для Li L6, L7, L8, L9 по VIN в Алматы: где найти VIN, что прислать в WhatsApp и почему по одной модели легко ошибиться.
-- [Какие запчасти у Li L6, L7, L8 и L9 общие](https://lixiangshop.kz/poleznoe/obshchie-zapchasti-li-l6-l7-l8-l9/): Что подходит на все Li, что общее у L7, L8 и L9 и что у L6 своё. Разбор 290 позиций каталога запчастей Lixiangshop.kz в Алматы.
+- [Какие запчасти у Li L6, L7, L8 и L9 общие](https://lixiangshop.kz/poleznoe/obshchie-zapchasti-li-l6-l7-l8-l9/): Что подходит на все Li, что общее у L7, L8 и L9 и что у L6 своё. Разбор 289 позиций каталога запчастей Lixiangshop.kz в Алматы.
 - [Стучит подвеска на Li: что проверить](https://lixiangshop.kz/poleznoe/stuchit-podveska-li/): Почему стучит подвеска на Li L6, L7, L8, L9 и как найти причину: вибростенд VibroTest, осмотр, замена в Алматы.
 
 ## Сервис
