@@ -70,3 +70,7 @@ python src/build.py
 - Тексты страниц деталей и статей: `content.py`.
 
 Цены показываются только на страницах товаров и в корзине. Сайт не называет себя официальным дилером Li Auto.
+
+## IndexNow
+
+После каждого пуша с изменениями в `site/` GitHub Actions (`.github/workflows/indexnow.yml`) ждёт деплой и отправляет изменённые страницы в IndexNow (Bing, Яндекс). Отправить весь sitemap вручную: Actions → IndexNow → Run workflow → «Отправить все страницы».

@@ -1,0 +1,34 @@
+# После каждого пуша в main с изменениями в site/ отправляет изменённые страницы
+# в IndexNow (Bing, Яндекс и другие). Сайт деплоится вебхуком Plesk, поэтому ждём его.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths: ['site/**']
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Отправить все страницы из sitemap'
+        type: boolean
+        default: false
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Ждём деплой на хостинге
+        run: |
+          KEY=$(ls site/*.txt | xargs -n1 basename | sed 's/\.txt$//' | grep -E '^[0-9a-f]{32}$' | head -1)
+          echo "KEY=$KEY" >> "$GITHUB_ENV"
+          for i in $(seq 1 20); do
+            if curl -fsS "https://lixiangshop.kz/$KEY.txt" | grep -q "$KEY"; then echo "key ok"; break; fi
+            sleep 15
+          done
+          sleep 60
+      - name: Отправляем страницы
+        env:
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ inputs.all }}
+        run: python3 .github/indexnow_ping.py
