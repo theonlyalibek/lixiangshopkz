@@ -235,12 +235,12 @@ section.s{padding-top:80px}
 .legal p{margin:0 0 8px}
 .legal a{color:var(--t2);text-decoration:underline;text-decoration-color:var(--hair3);text-underline-offset:3px}
 .legal a:hover{color:var(--t1)}
-.ordaw{display:flex;justify-content:center;margin-top:40px}
-.orda{display:inline-flex;align-items:center;gap:18px;padding:14px 20px 14px 17px;border:1.5px solid rgba(255,255,255,.22);border-radius:16px;color:#9A9998;transition:border-color .16s var(--ease)}
-.orda:hover{border-color:rgba(255,255,255,.4)}
+.ordaw{display:flex;margin-top:16px}
+.orda{display:inline-flex;flex:0 0 auto;align-items:center;gap:10px;padding:8px 12px 8px 10px;border:1px solid rgba(255,255,255,.12);border-radius:12px;color:var(--t3);text-decoration:none;transition:border-color .16s var(--ease)}
+.orda:hover{border-color:rgba(255,255,255,.28)}
 .orda img{display:block}
-.orda-t{display:flex;flex-direction:column;gap:4px;font-size:15px;line-height:20px;color:#9A9998}
-.orda svg{flex:none;align-self:center}
+.orda-t{display:flex;flex-direction:column;gap:3px;font-size:11px;line-height:1;white-space:nowrap}
+.orda svg{flex:none;margin-left:4px}
 /* dotted inline list: the dot before the first item of every line is clipped */
 .dl{overflow:hidden}
 .dl>span{display:flex;flex-wrap:wrap;margin-left:-16px}
