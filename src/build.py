@@ -33,6 +33,19 @@ PRICE += [0] * (len(DATA) - len(PRICE))
 SHOW_PRICES = False
 if not SHOW_PRICES: PRICE = [0] * len(PRICE)
 NOTE_PRICE = 'Цену и наличие подскажет менеджер в WhatsApp, номер сверим по VIN.'
+# перекрёстные ссылки на соседние сервисы: только на страницах двигателя и подвески, анкоры разные
+VITON_V2 = 'https://viton.kz/v2/ru/'
+VT_HOME = 'https://vibrotest.kz/ru/'
+XLINKS = {
+    'dvigatel': [('Диагностика двигателя Li в Viton', VITON_V2), ('Проверить двигатель перед заменой: Viton', VITON_V2)],
+    'toplivnaya-sistema': [('Чистка форсунок Li Auto: Viton', VITON_V2), ('Проверка форсунок на стенде: Viton', VITON_V2)],
+    'podveska': [('Диагностика ходовой: VibroTest', VT_HOME), ('Проверить подвеску на вибростенде VibroTest', 'https://vibrotest.kz/ru/services/diagnostika-na-vibrostende/'), ('Найти стук в подвеске Li: VibroTest', VT_HOME)],
+}
+def xline(sys_slug, r, part=''):
+    v = XLINKS.get(part) or XLINKS.get(sys_slug)
+    if not v: return ''
+    t, u = v[r % len(v)]
+    return f'<p class="pnote"><a class="more-link" href="{u}" target="_blank" rel="noopener">{e(t)} {ICON_ARROW}</a></p>'
 def rub(v): return f'{v:,}'.replace(',', '\u202f') + '\u00a0₸'
 SATU = json.load(open(os.path.join(HERE, 'data', 'satu-parsed.json')))
 SATU += [{}] * (len(DATA) - len(SATU))
@@ -298,7 +311,7 @@ for s in C.SYSTEMS:
 <section class="wrap art"><p class="lede">{e(s['intro'])}</p></section>
 <section class="s wrap" style="padding-top:40px"><h2 class="h2">Детали</h2><div class="pcards">{cards}</div></section>
 <section class="wrap art" style="padding-top:24px"><h2>Когда пора к нам</h2><ul class="sym">{''.join('<li>' + e(x) + '</li>' for x in s['sym'])}</ul>
-{near([('VibroTest', C2.VT_DIAG[0], C2.VT_DIAG[1] + ' ходовой и рулевого')], 'Проверить перед заказом') if s['slug'] in ('podveska', 'rulevoe') else ''}</section>
+{near([('VibroTest', C2.VT_DIAG[0], C2.VT_DIAG[1] + ' ходовой и рулевого')], 'Проверить перед заказом') if s['slug'] in ('podveska', 'rulevoe') else ''}{near([('Viton', VITON_V2, 'Чистка форсунок и диагностика двигателя Li Auto')], 'Проверить перед заказом') if s['slug'] == 'dvigatel' else ''}</section>
 {'<section class="s wrap"><h2 class="h2">Полезное</h2><div class="arts">' + rel + '</div></section>' if rel else ''}
 {cta(k)}'''
     pages[k] = layout(k, f'{s["h1"]} L6, L7, L8, L9 в Алматы | Lixiangshop.kz',
@@ -341,7 +354,9 @@ for p in C.PARTS:
         if p['slug'] in C2.VT_SERVICE:
             sv = C2.VT_SERVICE[p['slug']]; nrows.append(('VibroTest', C2.VT + sv[0] + '/', sv[1]))
     if p['slug'] == 'toplivnaya-sistema':
-        nrows.append(('Viton', 'https://viton.kz/ru/', 'Проверка и чистка форсунок'))
+        nrows.append(('Viton', VITON_V2, 'Чистка форсунок Li Auto'))
+    elif s['slug'] == 'dvigatel':
+        nrows.append(('Viton', VITON_V2, 'Диагностика зажигания и двигателя Li' if p['slug'] in ('katushki-zazhiganiya', 'svechi-zazhiganiya') else 'Диагностика двигателя Li Auto'))
     nearblock = near(nrows, 'На той же площадке', 'h3') if nrows else ''
     pim = PIMG.get(p['slug'])
     fig = f'<figure class="pimg sm"><img src="{asset(k, "img/" + wide(pim) + ".webp")}" alt="{e(p["name"])}" loading="lazy"></figure>' if pim else ''
@@ -413,6 +428,7 @@ for p in C.PARTS:
 <table class="spec"><tbody>{spec_html}</tbody></table>
 <h2>Когда менять</h2><ul class="sym">{''.join('<li>' + e(x) + '</li>' for x in p['sym'][:4])}</ul>
 <h2>Проверка и замена</h2><p>{e(p['check'])}</p>
+{xline(s['slug'], r, p['slug'])}
 {('<h2>Другие позиции: ' + e(lc1(p['name'])) + '</h2><ul class="plist">' + sib + '</ul>') if sib else ''}
 <a class="more-link" href="{href(k, "zapchasti/" + p["slug"])}">{e(p["name"])}: симптомы и замена {ICON_ARROW}</a>
 </section>"""
