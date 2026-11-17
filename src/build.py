@@ -34,7 +34,7 @@ SHOW_PRICES = False
 if not SHOW_PRICES: PRICE = [0] * len(PRICE)
 NOTE_PRICE = 'Цену и наличие подскажет менеджер в WhatsApp, номер сверим по VIN.'
 # перекрёстные ссылки на соседние сервисы: только на страницах двигателя и подвески, анкоры разные
-VITON_V2 = 'https://viton.kz/v2/ru/'
+VITON_V2 = 'https://viton.kz/ru/'  # viton.kz/v2/ru/ отдаёт 404, вернуть v2, когда новый Витон будет на этом адресе
 VT_HOME = 'https://vibrotest.kz/ru/'
 XLINKS = {
     'dvigatel': [('Диагностика двигателя Li в Viton', VITON_V2), ('Проверить двигатель перед заменой: Viton', VITON_V2)],
