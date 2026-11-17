@@ -204,7 +204,7 @@ def layout(key, title, desc, body, crumbs=None, ld=None, home=False, og_img='img
 <div class="fcol"><b>Каталог</b>{foot_sys}</div>
 <div class="fcol"><b>Модели</b>{foot_mod}<b class="mt">Сервис</b><a href="{href(key, 'zamena')}">Замена на VibroTest</a><a href="{href(key, 'kontakty')}">Контакты</a></div>
 <div class="fcol"><b>Полезное</b>{foot_art}</div>
-</div><div class="wrap legal"><p class="dl"><span><span>© 2026 Lixiangshop.kz</span><span>{LEGAL}</span><a href="{href(key, 'privacy')}">Политика данных</a></span></p><p>Независимый магазин. Не является официальным дилером Li Auto. Li и названия моделей принадлежат их правообладателям.</p></div></footer>
+</div><div class="wrap legal"><p class="dl"><span><span>© 2026 Lixiangshop.kz</span><span>{LEGAL}</span><a href="{href(key, 'privacy')}">Политика данных</a></span></p><p>Независимый магазин. Не является официальным дилером Li Auto. Li и названия моделей принадлежат их правообладателям.</p></div><div class="wrap ordaw"><a class="orda" href="https://www.instagram.com/orda.digital/" target="_blank" rel="noopener" aria-label="Разработка и дизайн: Orda.digital"><img src="{asset(key, 'img/orda-mark.png')}" width="50" height="35" alt="" loading="lazy"><span class="orda-t"><span>Разработка и дизайн</span><img src="{asset(key, 'img/orda-word.png')}" width="137" height="21" alt="Orda.digital" loading="lazy"></span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></footer>
 {fab if home else ''}{bar or ''}
 {SPRITE}
 <script src="{asset(key, 'assets/site.js')}"></script>

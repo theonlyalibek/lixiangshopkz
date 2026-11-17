@@ -235,6 +235,12 @@ section.s{padding-top:80px}
 .legal p{margin:0 0 8px}
 .legal a{color:var(--t2);text-decoration:underline;text-decoration-color:var(--hair3);text-underline-offset:3px}
 .legal a:hover{color:var(--t1)}
+.ordaw{display:flex;justify-content:center;margin-top:40px}
+.orda{display:inline-flex;align-items:center;gap:18px;padding:14px 20px 14px 17px;border:1.5px solid rgba(255,255,255,.22);border-radius:16px;color:#9A9998;transition:border-color .16s var(--ease)}
+.orda:hover{border-color:rgba(255,255,255,.4)}
+.orda img{display:block}
+.orda-t{display:flex;flex-direction:column;gap:4px;font-size:15px;line-height:20px;color:#9A9998}
+.orda svg{flex:none;align-self:center}
 /* dotted inline list: the dot before the first item of every line is clipped */
 .dl{overflow:hidden}
 .dl>span{display:flex;flex-wrap:wrap;margin-left:-16px}
