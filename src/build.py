@@ -325,6 +325,7 @@ for p in C.PARTS:
     k = 'zapchasti/' + p['slug']
     s = SYS[p['sys']]
     ms = models_of(p['rows'])
+    if len(ms) < 4 and any(not DATA[r][2] for r in p['rows']): ms = []  # a row with unknown model: don't narrow the title
     rows = ''
     for r in p['rows']:
         name, rm, oem = DATA[r][1], DATA[r][2], DATA[r][3]

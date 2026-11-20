@@ -14,7 +14,7 @@
 - Проверка подвески на вибростенде VibroTest и замена механики на подъёмнике на месте. Электронику устанавливают партнёры.
 
 ## Разделы
-- [Каталог](https://lixiangshop.kz/katalog/): 289 позиций
+- [Каталог](https://lixiangshop.kz/katalog/): 298 позиций
 - [Подвеска](https://lixiangshop.kz/katalog/podveska/)
 - [Охлаждение](https://lixiangshop.kz/katalog/ohlazhdenie/)
 - [Тормоза](https://lixiangshop.kz/katalog/tormoza/)
@@ -62,6 +62,8 @@
 - [Цапфа правая для Li L6, LAA-30010012](https://lixiangshop.kz/zapchasti/capfy/tsapfa-pravaya-li-l6-laa-30010012/)
 - [Цапфа задняя левая для Li L7, L8, L9, X01-30020011](https://lixiangshop.kz/zapchasti/capfy/tsapfa-zadnyaya-levaya-li-l7-l8-l9-x01-30020011/)
 - [Цапфа задняя правая для Li L7, L8, L9, X01-30020012](https://lixiangshop.kz/zapchasti/capfy/tsapfa-zadnyaya-pravaya-li-l7-l8-l9-x01-30020012/)
+- [Цапфа левая для Li, X01-20020025](https://lixiangshop.kz/zapchasti/capfy/tsapfa-levaya-li-x01-20020025/)
+- [Цапфа правая для Li, X01-20020026](https://lixiangshop.kz/zapchasti/capfy/tsapfa-pravaya-li-x01-20020026/)
 - [Ступица в сборе для Li L6, LAA-31030001](https://lixiangshop.kz/zapchasti/stupicy/stupitsa-v-sbore-li-l6-laa-31030001/)
 - [Ступица в сборе для Li L8, L9, M01-31030001](https://lixiangshop.kz/zapchasti/stupicy/stupitsa-v-sbore-li-l8-l9-m01-31030001/)
 - [Ступица в сборе для Li L7, X03-31030011](https://lixiangshop.kz/zapchasti/stupicy/stupitsa-v-sbore-li-l7-x03-31030011/)
@@ -97,6 +99,8 @@
 - [Пневмостойка передняя правая, рестайлинг 2025, двухкамерная для Li L7, LAQ-20020018](https://lixiangshop.kz/zapchasti/pnevmostoyki/pnevmostoyka-perednyaya-pravaya-restayling-2025-dvukhkamernaya-li-l7-laq-20020018/)
 - [Пневмостойка передняя правая, рестайлинг, двухконтурная, чёрный разъём для Li L7, L8, L9, X01-20020020](https://lixiangshop.kz/zapchasti/pnevmostoyki/pnevmostoyka-perednyaya-pravaya-restayling-dvukhkonturnaya-chernyy-razem-li-l7-l8-l9-x01-20020020/)
 - [Пневмостойка передняя правая, одноконтурная, чёрный разъём для Li L7, L8, L9, X01-29050018](https://lixiangshop.kz/zapchasti/pnevmostoyki/pnevmostoyka-perednyaya-pravaya-odnokonturnaya-chernyy-razem-li-l7-l8-l9-x01-29050018/)
+- [Компрессор пневмоподвески для Li, X01-29150021](https://lixiangshop.kz/zapchasti/kompressory-pnevmopodveski/kompressor-pnevmopodveski-li-x01-29150021/)
+- [Компрессор пневмоподвески для Li L7, X03-29150052](https://lixiangshop.kz/zapchasti/kompressory-pnevmopodveski/kompressor-pnevmopodveski-li-l7-x03-29150052/)
 - [Основной радиатор охлаждения для Li L8, L9, X01-13010011](https://lixiangshop.kz/zapchasti/radiatory/osnovnoy-radiator-okhlazhdeniya-li-l8-l9-x01-13010011/)
 - [Основной радиатор охлаждения для Li L7, X03-13010011](https://lixiangshop.kz/zapchasti/radiatory/osnovnoy-radiator-okhlazhdeniya-li-l7-x03-13010011/)
 - [Маленький верхний радиатор для Li L8, L9, X01-21270026](https://lixiangshop.kz/zapchasti/radiatory/malenkiy-verkhniy-radiator-li-l8-l9-x01-21270026/)
@@ -242,6 +246,7 @@
 - [Передняя монобровь, комплектация Max, дубликат для Li L7, X03-41210020](https://lixiangshop.kz/zapchasti/monobrov/perednyaya-monobrov-komplektatsiya-max-dublikat-li-l7-x03-41210020/)
 - [Передняя монобровь, комплектация Pro, дубликат для Li L7, X03-41210026](https://lixiangshop.kz/zapchasti/monobrov/perednyaya-monobrov-komplektatsiya-pro-dublikat-li-l7-x03-41210026/)
 - [Передняя монобровь, комплектация Pro, оригинал для Li L7, X03-41210026](https://lixiangshop.kz/zapchasti/monobrov/perednyaya-monobrov-komplektatsiya-pro-original-li-l7-x03-41210026/)
+- [Корпус лидара, большой для Li](https://lixiangshop.kz/zapchasti/lidar/korpus-lidara-bolshoy-li-298/)
 - [Задний левый привод в сборе для Li L7, L8, L9, X01-22010011-B](https://lixiangshop.kz/zapchasti/privody/zadniy-levyy-privod-v-sbore-li-l7-l8-l9-x01-22010011-b/)
 - [Задний правый привод в сборе для Li L7, L8, L9, X01-22010012-B](https://lixiangshop.kz/zapchasti/privody/zadniy-pravyy-privod-v-sbore-li-l7-l8-l9-x01-22010012-b/)
 - [Передний левый привод в сборе для Li L7, L8, L9, X01-22030011-FD](https://lixiangshop.kz/zapchasti/privody/peredniy-levyy-privod-v-sbore-li-l7-l8-l9-x01-22030011-fd/)
@@ -255,6 +260,10 @@
 - [Подушка переднего кронштейна двигателя задняя для Li L6, L7, L8, L9, X02-10010015](https://lixiangshop.kz/zapchasti/podushki/podushka-perednego-kronshteyna-dvigatelya-zadnyaya-li-l6-l7-l8-l9-x02-10010015/)
 - [Подушка заднего кронштейна двигателя правая для Li L6, L7, L8, L9, X01-10010016](https://lixiangshop.kz/zapchasti/podushki/podushka-zadnego-kronshteyna-dvigatelya-pravaya-li-l6-l7-l8-l9-x01-10010016/)
 - [Подушка заднего кронштейна двигателя левая для Li L6, L7, L8, L9, X01-10010017](https://lixiangshop.kz/zapchasti/podushki/podushka-zadnego-kronshteyna-dvigatelya-levaya-li-l6-l7-l8-l9-x01-10010017/)
+- [Подушка двигателя для Li, X01-10010015](https://lixiangshop.kz/zapchasti/podushki/podushka-dvigatelya-li-x01-10010015/)
+- [Сальник передней полуоси для Li, X01-90000006](https://lixiangshop.kz/zapchasti/salniki/salnik-peredney-poluosi-li-x01-90000006/)
+- [Сальник задней полуоси для Li, X01-90000027](https://lixiangshop.kz/zapchasti/salniki/salnik-zadney-poluosi-li-x01-90000027/)
+- [Сальник выходного вала для Li, X01-90000453](https://lixiangshop.kz/zapchasti/salniki/salnik-vykhodnogo-vala-li-x01-90000453/)
 - [Топливный насос высокого давления для Li L6, L7, L8, L9, 1000876-AWB](https://lixiangshop.kz/zapchasti/toplivnaya-sistema/toplivnyy-nasos-vysokogo-davleniya-li-l6-l7-l8-l9-1000876-awb/)
 - [Форсунка для Li L6, L7, L8, L9, 1000710-AWB](https://lixiangshop.kz/zapchasti/toplivnaya-sistema/forsunka-li-l6-l7-l8-l9-1000710-awb/)
 - [Карбоновый электромагнитный клапан для Li L6, L7, L8, 1000791-AWB](https://lixiangshop.kz/zapchasti/toplivnaya-sistema/karbonovyy-elektromagnitnyy-klapan-li-l6-l7-l8-1000791-awb/)
@@ -374,7 +383,7 @@
 - [Течёт антифриз или ошибка температуры на Li](https://lixiangshop.kz/poleznoe/ohlazhdenie-li/): Течь антифриза, ошибка температуры, слабый кондиционер на Li L6, L7, L8, L9: радиаторы, патрубки, помпы в Алматы.
 - [ТО Li: какие фильтры менять](https://lixiangshop.kz/poleznoe/to-li-filtry/): Масляный, воздушный и салонный фильтр для Li L6, L7, L8, L9: номера деталей и замена в Алматы.
 - [Как подобрать запчасть для Li по VIN](https://lixiangshop.kz/poleznoe/podbor-zapchastey-li-po-vin/): Подбор запчастей для Li L6, L7, L8, L9 по VIN в Алматы: где найти VIN, что прислать в WhatsApp и почему по одной модели легко ошибиться.
-- [Какие запчасти у Li L6, L7, L8 и L9 общие](https://lixiangshop.kz/poleznoe/obshchie-zapchasti-li-l6-l7-l8-l9/): Что подходит на все Li, что общее у L7, L8 и L9 и что у L6 своё. Разбор 289 позиций каталога запчастей Lixiangshop.kz в Алматы.
+- [Какие запчасти у Li L6, L7, L8 и L9 общие](https://lixiangshop.kz/poleznoe/obshchie-zapchasti-li-l6-l7-l8-l9/): Что подходит на все Li, что общее у L7, L8 и L9 и что у L6 своё. Разбор 298 позиций каталога запчастей Lixiangshop.kz в Алматы.
 - [Стучит подвеска на Li: что проверить](https://lixiangshop.kz/poleznoe/stuchit-podveska-li/): Почему стучит подвеска на Li L6, L7, L8, L9 и как найти причину: вибростенд VibroTest, осмотр, замена в Алматы.
 
 ## Сервис
