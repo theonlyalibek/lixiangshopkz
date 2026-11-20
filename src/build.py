@@ -161,7 +161,7 @@ def pthumb(cur, p):
     pim = PIMG.get(p['slug'])
     return f'<img class="pth" src="{asset(cur, "img/" + pim + "-t.webp")}" alt="{e(p['name'])} для Li" loading="lazy">' if pim else ''
 def wide(i):
-    return i + '-wide' if i.startswith(('cat-', 'part-')) else 'service-desktop'
+    return i + '-wide' if i.startswith(('cat-', 'part-', 'art-')) else 'service-desktop'
 
 def band_pic(cur, i, alt):
     return f'<picture><source media="(min-width:760px)" srcset="{asset(cur, "img/" + wide(i) + ".webp")}"><img src="{asset(cur, "img/" + i + ".webp")}" alt="{alt}"></picture>'
